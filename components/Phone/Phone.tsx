@@ -14,7 +14,12 @@ export const Phone = () => {
       paddingX="4"
       backgroundColor="gray.800"
     >
-      <Box backgroundImage={"/bg.png"} backgroundSize="cover" height="full">
+      <Box
+        backgroundImage={"/bg.png"}
+        backgroundSize="cover"
+        height="full"
+        borderRadius="md"
+      >
         <Box display="flex" height="100%" width="100%" alignItems="flex-end">
           <Box display="flex" paddingY="4">
             <Windows98FolderButton label="~*~Merch~*~" />
