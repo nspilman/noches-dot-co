@@ -12,7 +12,12 @@ export const Screen = () => {
     0 0 30px 10px rgba(255, 255, 255, 0.1)`}
       width={{ base: "100vw", sm: "unset" }}
     >
-      <Box display="flex" height="100%" width="100%" alignItems="flex-start">
+      <Box
+        display="flex"
+        height="full"
+        width="full"
+        justifyContent="space-between"
+      >
         <Box
           display="flex"
           paddingY="4"
@@ -29,6 +34,9 @@ export const Screen = () => {
           <Box py={"8"}>
             <IconButton label="noches.exe" icon="/noches.png" />
           </Box>
+        </Box>
+        <Box display="flex" height="full" alignItems="flex-end" py="6">
+          <IconButton label="Recycling Bin" icon="/recycle_bin.png" />
         </Box>
       </Box>
     </Box>
