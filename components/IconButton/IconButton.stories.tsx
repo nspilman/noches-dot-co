@@ -2,11 +2,11 @@
 import React from "react";
 import { Meta, Story } from "@storybook/react";
 import { ChakraProvider } from "@chakra-ui/react";
-import { Windows98FolderButton, Windows98FolderButtonProps } from "./Button";
+import { IconButton, Props } from "./IconButton";
 
 export default {
   title: "Components/Windows98FolderButton",
-  component: Windows98FolderButton,
+  component: IconButton,
   argTypes: {
     label: { control: "text" },
   },
@@ -19,11 +19,10 @@ export default {
   ],
 } as Meta;
 
-const Template: Story<Windows98FolderButtonProps> = (args) => (
-  <Windows98FolderButton {...args} />
-);
+const Template: Story<Props> = (args) => <IconButton {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
   label: "Merch",
+  icon: "/folder.png",
 };
