@@ -24,6 +24,7 @@ export const Screen = () => {
           flexDirection="column"
           height="full"
           alignItems="center"
+          w="26"
         >
           <Box py={"8"}>
             <IconButton label="music" icon="/folder.png" />
@@ -35,7 +36,7 @@ export const Screen = () => {
             <IconButton label="noches.exe" icon="/noches.png" />
           </Box>
         </Box>
-        <Box display="flex" height="full" alignItems="flex-end" py="6">
+        <Box display="flex" height="full" alignItems="flex-end" py="8">
           <IconButton label="Recycling Bin" icon="/recycle_bin.png" />
         </Box>
       </Box>
