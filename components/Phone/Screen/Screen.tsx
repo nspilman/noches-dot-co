@@ -24,7 +24,7 @@ export const Screen = () => {
           flexDirection="column"
           height="full"
           alignItems="center"
-          w="26"
+          w="28"
         >
           <Box py={"8"}>
             <IconButton label="music" icon="/music.png" />
