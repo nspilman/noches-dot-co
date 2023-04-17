@@ -27,14 +27,17 @@ export const Screen = () => {
           w="26"
         >
           <Box py={"8"}>
-            <IconButton label="music" icon="/folder.png" />
+            <IconButton label="music" icon="/music.png" />
           </Box>
           <Box py={"8"}>
             <IconButton label="merch" icon="/folder.png" />
           </Box>
           <Box py={"8"}>
-            <IconButton label="noches.exe" icon="/noches.png" />
+            <IconButton label="socials" icon="/internet_explorer.png" />
           </Box>
+          {/* <Box py={"8"}>
+            <IconButton label="noches.exe" icon="/noches.png" />
+          </Box> */}
         </Box>
         <Box display="flex" height="full" alignItems="flex-end" py="8">
           <IconButton label="Recycling Bin" icon="/recycle_bin.png" />

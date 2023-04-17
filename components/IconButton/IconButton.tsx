@@ -20,7 +20,7 @@ export const IconButton = ({ label, icon }: Props) => {
   return (
     <Button backgroundColor="unset" _hover={{ backgroundColor: "unset" }}>
       <Center flexDirection="column">
-        <Image src={icon} width="42px" height="42px" pb="2" />
+        <Image src={icon} width="42px" height="50px" pb="2" />
         <Text
           fontWeight="bold"
           color="white"
