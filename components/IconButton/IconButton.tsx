@@ -8,22 +8,34 @@ import {
   Center,
   Image,
 } from "@chakra-ui/react";
+import { Label } from "../Phone/Screen/types";
 
 export interface Props extends ButtonProps {
-  label: string;
+  label: Label;
   icon: string;
+  labelColor?: "white" | "black";
+  onClick: () => void;
 }
 
-export const IconButton = ({ label, icon }: Props) => {
+export const IconButton = ({
+  label,
+  icon,
+  labelColor = "white",
+  onClick,
+}: Props): React.ReactElement => {
   const theme = useTheme();
 
   return (
-    <Button backgroundColor="unset" _hover={{ backgroundColor: "unset" }}>
+    <Button
+      backgroundColor="unset"
+      _hover={{ backgroundColor: "unset" }}
+      onClick={onClick}
+    >
       <Center flexDirection="column">
         <Image src={icon} width="42px" height="50px" pb="2" />
         <Text
-          fontWeight="bold"
-          color="white"
+          fontWeight="light"
+          color={labelColor}
           textShadow={"0 0 10px 2px rgba(0, 0, 0, 0.7)"}
         >
           {label}

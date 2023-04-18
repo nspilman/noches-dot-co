@@ -13,6 +13,7 @@ export const Phone = () => {
       paddingBottom={{ base: 0, sm: "5" }}
       paddingX={{ base: 0, sm: "4" }}
       backgroundColor="gray.800"
+      fontFamily={"Arial,sans-serif"}
     >
       <Screen />
     </Box>
