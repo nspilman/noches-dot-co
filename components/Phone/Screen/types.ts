@@ -4,4 +4,5 @@ export type Label =
   | "Socials"
   | "Recycling Bin"
   | "Noches.exe"
-  | "Spotify";
+  | "Spotify"
+  | "Instagram";

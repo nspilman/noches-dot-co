@@ -1,63 +1,94 @@
 import { Box } from "@chakra-ui/react";
 import { useState } from "react";
 import { IconButton } from "../../IconButton";
+import { ActionWindow } from "./ActionWindow/ActionWindow";
 import { Folder } from "./Folder";
 import { Label } from "./types";
 
 export const Screen = () => {
+  const openExternalLink = (url: string) => {
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
+
+  const cookThuglessSpotifyUrl =
+    "https://open.spotify.com/artist/6nP9APsxfZXjwl4vl3e3DF";
+
+  const cookThuglessInstagram = "https://www.instagram.com/cookthugless/?hl=en";
+
+  const [isEasterEggActive, setIsEasterEggActive] = useState(false);
+
   const folders = [
     {
-      folderName: "Music" as const,
+      windowName: "Music" as const,
       buttonProps: [
         {
           label: "Spotify" as const,
           icon: "/spotify.png",
-          onClick: () => console.log("gotMe"),
+          onClick: () => openExternalLink(cookThuglessSpotifyUrl),
         },
       ],
     },
     {
-      folderName: "Merch" as const,
+      windowName: "Merch" as const,
       buttonProps: [
         {
-          label: "Spotify" as const,
+          label: "Merch" as const,
           icon: "/folder.png",
           onClick: () => console.log("gotMe"),
         },
       ],
     },
     {
-      folderName: "Socials" as const,
+      windowName: "Socials" as const,
       buttonProps: [
         {
-          label: "Spotify" as const,
-          icon: "/folder.png",
-          onClick: () => console.log("gotMe"),
+          label: "Instagram" as const,
+          icon: "/instagram.png",
+          onClick: () => openExternalLink(cookThuglessInstagram),
         },
       ],
     },
     {
-      folderName: "Recycling Bin" as const,
-      buttonProps: [
-        {
-          label: "Noches.exe" as const,
-          icon: "/noches.png",
-          onClick: () => console.log("gotMe"),
-        },
-      ],
+      windowName: "Recycling Bin" as const,
+      buttonProps: isEasterEggActive
+        ? []
+        : [
+            {
+              label: "Noches.exe" as const,
+              icon: "/noches.png",
+              onClick: () => setAction(nochesExeAction),
+            },
+          ],
     },
   ];
 
   const openFolder = (
     folderName: Extract<Label, "Music" | "Merch" | "Socials" | "Recycling Bin">
   ) => {
-    const folder = folders.find((folder) => folder.folderName === folderName);
+    const folder = folders.find((folder) => folder.windowName === folderName);
     setFolder(folder);
   };
 
-  const [folder, setFolder] = useState<typeof folders[number] | undefined>(
-    folders[0]
-  );
+  const [folder, setFolder] = useState<typeof folders[number]>();
+  const [action, setAction] =
+    useState<{
+      windowName: string;
+      onClose: () => void;
+      text: string;
+      onAccept: () => void;
+    }>();
+
+  const nochesExeAction = {
+    windowName: "Restore Noches.exe",
+    text: "Would you like to restore Noches.exe?",
+    onClose: () => setAction(undefined),
+    onAccept: () => {
+      setIsEasterEggActive(true);
+      setAction(undefined);
+      setFolder(undefined);
+    },
+  };
+
   return (
     <Box
       backgroundImage={"/bg.png"}
@@ -70,6 +101,7 @@ export const Screen = () => {
       position="relative"
     >
       {folder && <Folder {...folder} onClose={() => setFolder(undefined)} />}
+      {action && <ActionWindow {...action} />}
       <Box
         display="flex"
         height="full"
@@ -105,14 +137,24 @@ export const Screen = () => {
               onClick={() => openFolder("Socials")}
             />
           </Box>
-          {/* <Box py={"8"}>
-            <IconButton label="noches.exe" icon="/noches.png" />
-          </Box> */}
+          {isEasterEggActive && (
+            <Box py={"8"}>
+              <IconButton
+                label="Noches.exe"
+                icon="/noches.png"
+                onClick={() => console.log("")}
+              />
+            </Box>
+          )}
         </Box>
         <Box display="flex" height="full" alignItems="flex-end" py="8">
           <IconButton
             label="Recycling Bin"
-            icon="/recycle_bin.png"
+            icon={
+              isEasterEggActive
+                ? "/empty-recycling-bin.png"
+                : "/recycle_bin.png"
+            }
             onClick={() => openFolder("Recycling Bin")}
           />
         </Box>

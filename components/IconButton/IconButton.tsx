@@ -1,13 +1,6 @@
 // Windows98FolderButton.tsx
 import React from "react";
-import {
-  Button,
-  ButtonProps,
-  useTheme,
-  Text,
-  Center,
-  Image,
-} from "@chakra-ui/react";
+import { Button, ButtonProps, Text, Center, Image } from "@chakra-ui/react";
 import { Label } from "../Phone/Screen/types";
 
 export interface Props extends ButtonProps {
@@ -23,16 +16,21 @@ export const IconButton = ({
   labelColor = "white",
   onClick,
 }: Props): React.ReactElement => {
-  const theme = useTheme();
-
+  const onContextMenu = (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => {
+    e.preventDefault();
+    console.log("right click");
+  };
   return (
     <Button
       backgroundColor="unset"
       _hover={{ backgroundColor: "unset" }}
       onClick={onClick}
+      onContextMenu={onContextMenu}
     >
       <Center flexDirection="column">
-        <Image src={icon} width="42px" height="50px" pb="2" />
+        <Image src={icon} width="34px" height="40px" pb="1" />
         <Text
           fontWeight="light"
           color={labelColor}
