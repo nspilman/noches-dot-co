@@ -17,7 +17,7 @@ export const useHomescreenNavigation = () => {
 
   const nochesExeAction = {
     windowName: "Restore Noches.exe",
-    text: "Would you like to restore Noches.exe?",
+    text: "[WARNING: THIS ACTION MAY BE UNSAFE] Would you like to restore Noches.exe?",
     onClose: () => setAction(undefined),
     onAccept: () => {
       setIsEasterEggActive(true);
