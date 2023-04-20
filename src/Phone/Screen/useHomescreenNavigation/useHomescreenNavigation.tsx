@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { useFolders } from "./useFolders";
+import { Text } from "@chakra-ui/react";
 
 export const useHomescreenNavigation = () => {
   const [action, setAction] =
     useState<{
       windowName: string;
       onClose: () => void;
-      text: string;
+      text: string | React.ReactNode;
       onAccept: () => void;
     }>();
   const [isEasterEggActive, setIsEasterEggActive] = useState(false);
@@ -17,7 +18,12 @@ export const useHomescreenNavigation = () => {
 
   const nochesExeAction = {
     windowName: "Restore Noches.exe",
-    text: "[WARNING: THIS ACTION MAY BE UNSAFE] Would you like to restore Noches.exe?",
+    text: (
+      <>
+        <Text as="p">Would you like to restore Noches.exe?</Text>{" "}
+        <Text>[WARNING: THIS ACTION MAY BE UNSAFE]</Text>
+      </>
+    ),
     onClose: () => setAction(undefined),
     onAccept: () => {
       setIsEasterEggActive(true);

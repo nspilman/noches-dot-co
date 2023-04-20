@@ -2,7 +2,7 @@ import { Box, Button, Stack, Text } from "@chakra-ui/react";
 import { Window, Props as WindowProps } from "components/Window";
 
 interface Props extends WindowProps {
-  text: string;
+  text: string | React.ReactNode;
   onAccept: () => void;
 }
 
