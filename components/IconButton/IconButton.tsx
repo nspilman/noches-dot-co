@@ -1,7 +1,7 @@
 // Windows98FolderButton.tsx
 import React from "react";
 import { Button, ButtonProps, Text, Center, Image } from "@chakra-ui/react";
-import { Label } from "../Phone/Screen/types";
+import { Label } from "../../src/Phone/Screen/types";
 
 export interface Props extends ButtonProps {
   label: Label;
