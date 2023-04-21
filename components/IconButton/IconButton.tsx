@@ -44,6 +44,7 @@ export const IconButton = ({
           textShadow={"0 0 10px 2px rgba(0, 0, 0, 0.7)"}
           wordBreak="break-word"
           whiteSpace="normal"
+          width={"90px"}
         >
           {label}
         </Text>

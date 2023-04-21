@@ -1,21 +1,40 @@
-import { Box } from "@chakra-ui/react";
+import { Box, Image } from "@chakra-ui/react";
 import { IconButton } from "components/IconButton";
+import { useMemo } from "react";
+import { useEasterEgg } from "src/EasterEggContext";
 import { ActionWindow } from "./ActionWindow";
 import { Folder } from "./Folder";
+import { NochesButton } from "./NochesButton/NochesButton";
 import { useHomescreenNavigation } from "./useHomescreenNavigation/useHomescreenNavigation";
 
 export const Screen = () => {
-  const { folder, openFolder, isEasterEggActive, closeFolder, action } =
-    useHomescreenNavigation();
+  const { folder, openFolder, closeFolder, action } = useHomescreenNavigation();
+
+  const { easterEggStep, setEasterEggStep } = useEasterEgg();
+
+  const background = useMemo(() => {
+    switch (easterEggStep) {
+      case "disabled":
+        return "/bg.png";
+      case "nochesRestored":
+        return "/bg_daymoon.jpeg";
+      case "doorOpen":
+        return "/bg_nightmoon.png";
+      default:
+        return "";
+    }
+  }, [easterEggStep]);
 
   return (
     <Box
-      backgroundImage={"/bg.png"}
+      backgroundImage={background}
       backgroundSize="cover"
+      backgroundPosition="center"
       height="full"
       borderRadius={{ base: "none", sm: "75" }}
       boxShadow={`0 0 10px 2px rgba(255, 255, 255, 0.01),
     0 0 30px 10px rgba(255, 255, 255, 0.1)`}
+      transition="1s"
       width={{ base: "100vw", sm: "unset" }}
       position="relative"
     >
@@ -39,34 +58,52 @@ export const Screen = () => {
           zIndex="3"
         >
           <Box py={"8"}>
-            <IconButton
+            <NochesButton
               label="My Music"
               icon="/music.png"
               onClick={() => openFolder("music")}
             />
           </Box>
           <Box py={"8"}>
-            <IconButton
+            <NochesButton
               label="My Merch"
               icon="/folder.png"
               onClick={() => openFolder("merch")}
             />
           </Box>
           <Box py={"8"}>
-            <IconButton
+            <NochesButton
               label="Internet Explorer"
               icon="/internet_explorer.png"
               onClick={() => openFolder("socials")}
             />
           </Box>
-          {isEasterEggActive && (
-            <Box py={"8"}>
-              <IconButton
-                label="Noches.exe"
-                icon="/noches.png"
-                onClick={() => console.log("")}
-              />
-            </Box>
+        </Box>
+        <Box
+          height="full"
+          display="flex"
+          flexDirection="column"
+          justifyContent="flex-end"
+        >
+          {easterEggStep !== "disabled" && (
+            <Image
+              src={
+                easterEggStep === "nochesRestored"
+                  ? "/door-closed.png"
+                  : "/door-open.png"
+              }
+              width="100px"
+              maxWidth="unset"
+              onClick={() =>
+                setEasterEggStep(
+                  easterEggStep === "nochesRestored"
+                    ? "doorOpen"
+                    : "nochesRestored"
+                )
+              }
+              zIndex="3"
+              cursor="pointer"
+            />
           )}
         </Box>
         <Box
@@ -79,9 +116,9 @@ export const Screen = () => {
           <IconButton
             label="Recycling Bin"
             icon={
-              isEasterEggActive
-                ? "/empty-recycling-bin.png"
-                : "/recycle_bin.png"
+              easterEggStep === "disabled"
+                ? "/recycle_bin.png"
+                : "/empty-recycling-bin.png"
             }
             onClick={() => openFolder("recyclingBin")}
           />

@@ -23,6 +23,6 @@ const Template: Story<Props> = (args) => <IconButton {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  label: "Merch",
+  label: "My Merch",
   icon: "/folder.png",
 };

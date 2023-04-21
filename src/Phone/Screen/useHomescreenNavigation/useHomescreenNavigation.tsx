@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useFolders } from "./useFolders";
 import { Text } from "@chakra-ui/react";
+import { useEasterEgg } from "src/EasterEggContext";
 
 export const useHomescreenNavigation = () => {
   const [action, setAction] =
@@ -10,9 +11,11 @@ export const useHomescreenNavigation = () => {
       text: string | React.ReactNode;
       onAccept: () => void;
     }>();
-  const [isEasterEggActive, setIsEasterEggActive] = useState(false);
+
+  const { easterEggStep, setEasterEggStep } = useEasterEgg();
+
   const { folder, openFolder, closeFolder } = useFolders({
-    isEasterEggActive,
+    isEasterEggActive: easterEggStep !== "disabled",
     setNochesExe: () => setAction(nochesExeAction),
   });
 
@@ -26,7 +29,7 @@ export const useHomescreenNavigation = () => {
     ),
     onClose: () => setAction(undefined),
     onAccept: () => {
-      setIsEasterEggActive(true);
+      setEasterEggStep("nochesRestored");
       setAction(undefined);
       closeFolder();
     },
@@ -35,7 +38,6 @@ export const useHomescreenNavigation = () => {
   return {
     openFolder,
     folder,
-    isEasterEggActive,
     closeFolder,
     action,
   };
