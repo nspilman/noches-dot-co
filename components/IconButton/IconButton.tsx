@@ -1,6 +1,13 @@
 // Windows98FolderButton.tsx
 import React from "react";
-import { Button, ButtonProps, Text, Center, Image } from "@chakra-ui/react";
+import {
+  Button,
+  ButtonProps,
+  Text,
+  Center,
+  Image,
+  Wrap,
+} from "@chakra-ui/react";
 import { Label } from "../../src/Phone/Screen/types";
 
 export interface Props extends ButtonProps {
@@ -35,6 +42,8 @@ export const IconButton = ({
           fontWeight="light"
           color={labelColor}
           textShadow={"0 0 10px 2px rgba(0, 0, 0, 0.7)"}
+          wordBreak="break-word"
+          whiteSpace="normal"
         >
           {label}
         </Text>

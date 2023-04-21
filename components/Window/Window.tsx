@@ -11,7 +11,7 @@ export const Window = ({
   children,
 }: Props & { children: React.ReactElement }) => {
   return (
-    <Center width="100%" height="100%" zIndex={1} position="absolute">
+    <Center width="100%" height="100%" position="absolute" zIndex={1000}>
       <Box
         backgroundColor="#c6c6c6"
         width="72"

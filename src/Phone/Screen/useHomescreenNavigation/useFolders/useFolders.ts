@@ -13,11 +13,11 @@ export const useFolders = ({
   isEasterEggActive: boolean;
   setNochesExe: () => void;
 }) => {
-  const [folder, setFolder] = useState<typeof folders[number]>();
+  const [folderKey, setFolderKey] = useState<keyof typeof folders>();
 
-  const folders = [
-    {
-      windowName: "Music" as const,
+  const folders = {
+    music: {
+      windowName: "My Music" as const,
       buttonProps: [
         {
           label: "Spotify" as const,
@@ -26,18 +26,18 @@ export const useFolders = ({
         },
       ],
     },
-    {
-      windowName: "Merch" as const,
+    merch: {
+      windowName: "My Merch" as const,
       buttonProps: [
         {
-          label: "Merch" as const,
+          label: "My Merch" as const,
           icon: "/folder.png",
           onClick: () => console.log("gotMe"),
         },
       ],
     },
-    {
-      windowName: "Socials" as const,
+    socials: {
+      windowName: "Internet Explorer" as const,
       buttonProps: [
         {
           label: "Instagram" as const,
@@ -46,7 +46,7 @@ export const useFolders = ({
         },
       ],
     },
-    {
+    recyclingBin: {
       windowName: "Recycling Bin" as const,
       buttonProps: isEasterEggActive
         ? []
@@ -58,14 +58,15 @@ export const useFolders = ({
             },
           ],
     },
-  ];
-
-  const openFolder = (
-    folderName: Extract<Label, "Music" | "Merch" | "Socials" | "Recycling Bin">
-  ) => {
-    const folder = folders.find((folder) => folder.windowName === folderName);
-    setFolder(folder);
   };
 
-  return { folder, openFolder, closeFolder: () => setFolder(undefined) };
+  const openFolder = (folderName: keyof typeof folders) => {
+    setFolderKey(folderName);
+  };
+
+  return {
+    folder: folderKey && folders[folderKey],
+    openFolder,
+    closeFolder: () => setFolderKey(undefined),
+  };
 };

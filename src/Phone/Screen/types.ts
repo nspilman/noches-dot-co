@@ -1,7 +1,7 @@
 export type Label =
-  | "Music"
-  | "Merch"
-  | "Socials"
+  | "My Music"
+  | "My Merch"
+  | "Internet Explorer"
   | "Recycling Bin"
   | "Noches.exe"
   | "Spotify"

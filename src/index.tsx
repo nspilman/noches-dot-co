@@ -4,10 +4,11 @@ import { Phone } from "./Phone";
 export const Homepage = () => {
   return (
     <Center
-      backgroundImage="/bedroom.png"
+      backgroundImage="/noches_bedroom.png"
       height="100vh"
       width="100vw"
-      backgroundSize="contain"
+      backgroundSize="cover"
+      backgroundPosition="center"
     >
       <Phone />
     </Center>
