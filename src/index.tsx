@@ -1,5 +1,5 @@
 import { Center, Box } from "@chakra-ui/react";
-import { EasterEggContextProvider, useEasterEgg } from "./EasterEggContext";
+import { useEasterEgg } from "./EasterEggContext";
 import { Phone } from "./Phone";
 
 export const Homepage = () => {

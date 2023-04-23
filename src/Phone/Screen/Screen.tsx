@@ -15,7 +15,7 @@ export const Screen = () => {
   const background = useMemo(() => {
     switch (easterEggStep) {
       case "disabled":
-        return "/bg.png";
+        return "/bg.jpeg";
       case "nochesRestored":
         return "/bg_daymoon.jpeg";
       case "doorOpen":
@@ -79,33 +79,30 @@ export const Screen = () => {
             />
           </Box>
         </Box>
-        <Box
-          height="full"
-          display="flex"
-          flexDirection="column"
-          justifyContent="flex-end"
-        >
-          {easterEggStep !== "disabled" && (
-            <Image
-              src={
+
+        {easterEggStep !== "disabled" && (
+          <Image
+            src={
+              easterEggStep === "nochesRestored"
+                ? "/door-closed.png"
+                : "/door-open.png"
+            }
+            position="absolute"
+            right="100px"
+            top="400px"
+            width="100px"
+            maxWidth="unset"
+            onClick={() =>
+              setEasterEggStep(
                 easterEggStep === "nochesRestored"
-                  ? "/door-closed.png"
-                  : "/door-open.png"
-              }
-              width="100px"
-              maxWidth="unset"
-              onClick={() =>
-                setEasterEggStep(
-                  easterEggStep === "nochesRestored"
-                    ? "doorOpen"
-                    : "nochesRestored"
-                )
-              }
-              zIndex="3"
-              cursor="pointer"
-            />
-          )}
-        </Box>
+                  ? "doorOpen"
+                  : "nochesRestored"
+              )
+            }
+            zIndex="3"
+            cursor="pointer"
+          />
+        )}
         <Box
           display="flex"
           height="full"

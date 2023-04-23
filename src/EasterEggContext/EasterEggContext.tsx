@@ -1,5 +1,6 @@
 // ThemeContext.tsx
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
+import { useStorage } from "utils/useStorage";
 
 type Step = "disabled" | "nochesRestored" | "doorOpen";
 
@@ -17,10 +18,26 @@ export const EasterEggContextProvider = ({
 }: {
   children: React.ReactElement;
 }) => {
+  const easterEggPersistenceKey = "NocheseasterEgg" as const;
+  const storage = useStorage<typeof easterEggPersistenceKey, Step>();
   const [easterEggStep, setEasterEggStep] = useState<Step>("disabled");
 
+  useEffect(() => {
+    const persistedEasterEggStep = storage.getItem(easterEggPersistenceKey);
+    if (persistedEasterEggStep) {
+      setEasterEggStep(persistedEasterEggStep);
+    }
+  }, [easterEggStep, storage]);
+
+  const setAndPersistEasterEggStep = (step: Step) => {
+    storage.setItem(easterEggPersistenceKey, step);
+    setEasterEggStep(step);
+  };
+
   return (
-    <EasterEggContext.Provider value={{ easterEggStep, setEasterEggStep }}>
+    <EasterEggContext.Provider
+      value={{ easterEggStep, setEasterEggStep: setAndPersistEasterEggStep }}
+    >
       {children}
     </EasterEggContext.Provider>
   );
