@@ -1,43 +1,17 @@
 import { Box, Image } from "@chakra-ui/react";
 import { IconButton } from "components/IconButton";
-import { useMemo } from "react";
-import { useEasterEgg } from "src/EasterEggContext";
-import { ActionWindow } from "./ActionWindow";
+import { useEasterEgg } from "context";
 import { Folder } from "./Folder";
+import { ActionWindow } from "./ActionWindow";
 import { NochesButton } from "./NochesButton/NochesButton";
-import { useHomescreenNavigation } from "./useHomescreenNavigation/useHomescreenNavigation";
+import { useHomescreenNavigation } from "./useHomescreenNavigation";
 
-export const Screen = () => {
+export const Homepage = () => {
   const { folder, openFolder, closeFolder, action } = useHomescreenNavigation();
-
   const { easterEggStep, setEasterEggStep } = useEasterEgg();
 
-  const background = useMemo(() => {
-    switch (easterEggStep) {
-      case "disabled":
-        return "/bg.jpeg";
-      case "nochesRestored":
-        return "/bg_daymoon.jpeg";
-      case "doorOpen":
-        return "/bg_nightmoon.png";
-      default:
-        return "";
-    }
-  }, [easterEggStep]);
-
   return (
-    <Box
-      backgroundImage={background}
-      backgroundSize="cover"
-      backgroundPosition="center"
-      height="full"
-      borderRadius={{ base: "none", sm: "75" }}
-      boxShadow={`0 0 10px 2px rgba(255, 255, 255, 0.01),
-    0 0 30px 10px rgba(255, 255, 255, 0.1)`}
-      transition="1s"
-      width={{ base: "100vw", sm: "unset" }}
-      position="relative"
-    >
+    <Box height="full">
       {folder && <Folder {...folder} onClose={() => closeFolder()} />}
       {action && <ActionWindow {...action} />}
       <Box
@@ -99,7 +73,7 @@ export const Screen = () => {
                   : "nochesRestored"
               )
             }
-            zIndex="3"
+            zIndex="4"
             cursor="pointer"
           />
         )}

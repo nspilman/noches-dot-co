@@ -14,3 +14,12 @@ a {
 * {
   box-sizing: border-box;
 }
+
+/* src/index.css or src/App.css */
+@font-face {
+  font-family: 'monotype';
+  src: 
+       url('/fonts/VT323-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

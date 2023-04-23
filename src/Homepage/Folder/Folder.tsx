@@ -1,7 +1,7 @@
 import { Box } from "@chakra-ui/react";
-import { IconButton } from "../../../../components/IconButton";
-import { Label } from "../types";
-import { Window, Props as WindowProps } from "../../../../components/Window";
+import { IconButton } from "../../../components/IconButton";
+import { Label } from "../../../components/ScreenWrapper/Phone/Screen/types";
+import { Window, Props as WindowProps } from "../../../components/Window";
 
 interface Props extends WindowProps {
   buttonProps: {

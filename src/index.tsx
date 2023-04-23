@@ -1,26 +1,25 @@
-import { Center, Box } from "@chakra-ui/react";
-import { useEasterEgg } from "./EasterEggContext";
-import { Phone } from "./Phone";
+import { ScreenWrapper } from "components/ScreenWrapper/ScreenWrapper";
+import { useEasterEgg } from "context";
+import { useMemo } from "react";
+import { Homepage } from "./Homepage/Homepage";
 
-export const Homepage = () => {
+export const HomePage = () => {
   const { easterEggStep } = useEasterEgg();
+  const background = useMemo(() => {
+    switch (easterEggStep) {
+      case "disabled":
+        return "/bg.jpeg";
+      case "nochesRestored":
+        return "/bg_daymoon.jpeg";
+      case "doorOpen":
+        return "/bg_nightmoon.png";
+      default:
+        return "";
+    }
+  }, [easterEggStep]);
   return (
-    <Center
-      backgroundImage="/noches_bedroom.png"
-      height="100vh"
-      width="100vw"
-      backgroundSize="cover"
-      backgroundPosition="center"
-      position={"relative"}
-    >
-      <Box
-        width="100%"
-        height="100%"
-        position={"absolute"}
-        bg={easterEggStep === "doorOpen" ? "rgb(0,0,0,.7)" : "unset"}
-        transition="1s"
-      ></Box>
-      <Phone />
-    </Center>
+    <ScreenWrapper screenBg={background}>
+      <Homepage />
+    </ScreenWrapper>
   );
 };

@@ -3,7 +3,7 @@ import type { AppProps } from "next/app";
 import { ChakraProvider } from "@chakra-ui/react";
 import { theme } from "../styles/styles";
 import Head from "next/head";
-import { EasterEggContextProvider } from "src/EasterEggContext";
+import { EasterEggContextProvider } from "context";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

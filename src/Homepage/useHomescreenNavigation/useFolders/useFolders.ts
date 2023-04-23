@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { openExternalLink } from "utils/openExternalLink";
-import { Label } from "../../types";
+import { Label } from "../../../../components/ScreenWrapper/Phone/Screen/types";
 
 const cookThuglessSpotifyUrl =
   "https://open.spotify.com/artist/6nP9APsxfZXjwl4vl3e3DF";

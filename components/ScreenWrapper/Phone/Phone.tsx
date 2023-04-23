@@ -1,7 +1,13 @@
 import { Box, Image } from "@chakra-ui/react";
 import { Screen } from "./Screen";
 
-export const Phone = () => {
+export const Phone = ({
+  children,
+  screenBg,
+}: {
+  children: React.ReactElement;
+  screenBg: string;
+}): React.ReactElement => {
   return (
     <Box
       width={{ base: "full", sm: "xs" }}
@@ -18,14 +24,9 @@ export const Phone = () => {
         zIndex={2}
         display={{ base: "none", sm: "block" }}
       >
-        <Image
-          src="iphone.png"
-          width="xs"
-          maxHeight="unset"
-          maxWidth="unset"
-        ></Image>
+        <Image src="iphone.png" width="xs" maxHeight="unset" maxWidth="unset" />
       </Box>
-      <Screen />
+      <Screen screenBg={screenBg}>{children}</Screen>
     </Box>
   );
 };

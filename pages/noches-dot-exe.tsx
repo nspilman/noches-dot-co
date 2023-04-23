@@ -1,8 +1,8 @@
 import type { NextPage } from "next";
-import { HomePage } from "../src";
+import { NochesDotExe } from "../src/NochesDotExe";
 
 const Home: NextPage = () => {
-  return <HomePage />;
+  return <NochesDotExe />;
 };
 
 export default Home;

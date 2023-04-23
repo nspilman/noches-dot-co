@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useFolders } from "./useFolders";
 import { Text } from "@chakra-ui/react";
-import { useEasterEgg } from "src/EasterEggContext";
+import { useEasterEgg } from "context/EasterEggContext";
 
 export const useHomescreenNavigation = () => {
   const [action, setAction] =

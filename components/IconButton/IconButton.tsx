@@ -8,7 +8,7 @@ import {
   Image,
   Wrap,
 } from "@chakra-ui/react";
-import { Label } from "../../src/Phone/Screen/types";
+import { Label } from "../ScreenWrapper/Phone/Screen/types";
 
 export interface Props extends ButtonProps {
   label: Label;
