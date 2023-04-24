@@ -38,13 +38,13 @@ export const Homepage = () => {
               onClick={() => openFolder("music")}
             />
           </Box>
-          <Box py={"8"}>
+          {/* <Box py={"8"}>
             <NochesButton
               label="My Merch"
               icon="/folder.png"
               onClick={() => openFolder("merch")}
             />
-          </Box>
+          </Box> */}
           <Box py={"8"}>
             <NochesButton
               label="Internet Explorer"

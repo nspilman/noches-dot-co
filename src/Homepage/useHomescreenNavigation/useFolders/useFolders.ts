@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { openExternalLink } from "utils/openExternalLink";
-import { Label } from "../../../../components/ScreenWrapper/Phone/Screen/types";
 
-const cookThuglessSpotifyUrl =
-  "https://open.spotify.com/artist/6nP9APsxfZXjwl4vl3e3DF";
+const theGardenPresave =
+  "https://distrokid.com/hyperfollow/noches/the-garden-2";
 
 const cookThuglessInstagram = "https://www.instagram.com/cookthugless/?hl=en";
+const tiktok = "https://www.tiktok.com/@noches.exe";
 export const useFolders = ({
   isEasterEggActive,
   setNochesExe,
@@ -22,7 +22,7 @@ export const useFolders = ({
         {
           label: "Spotify" as const,
           icon: "/spotify.png",
-          onClick: () => openExternalLink(cookThuglessSpotifyUrl),
+          onClick: () => openExternalLink(theGardenPresave),
         },
       ],
     },
@@ -43,6 +43,11 @@ export const useFolders = ({
           label: "Instagram" as const,
           icon: "/instagram.png",
           onClick: () => openExternalLink(cookThuglessInstagram),
+        },
+        {
+          label: "TikTok" as const,
+          icon: "/tiktok.png",
+          onClick: () => openExternalLink(tiktok),
         },
       ],
     },
