@@ -1,7 +1,8 @@
 import { ScreenWrapper } from "components/ScreenWrapper/ScreenWrapper";
 import { useEasterEgg } from "context";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import { Homepage } from "./Homepage/Homepage";
+import { pageview } from "utils/analytics";
 
 export const HomePage = () => {
   const { easterEggStep } = useEasterEgg();
