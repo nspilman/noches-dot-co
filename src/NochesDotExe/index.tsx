@@ -1,4 +1,4 @@
-import { Center, Heading } from "@chakra-ui/react";
+import { Center, Heading, Image } from "@chakra-ui/react";
 import { ScreenWrapper } from "components/ScreenWrapper/ScreenWrapper";
 import { useEasterEgg } from "context";
 import { useRouter } from "next/router";
@@ -9,25 +9,38 @@ export const NochesDotExe = () => {
   const screenRef = useRef(null);
   const router = useRouter();
   const { setEasterEggStep } = useEasterEgg();
+  const [showLoading, setShowLoading] = useState(true);
   const goBackHomeAndCloseDoor = () => {
     setEasterEggStep("nochesRestored");
     router.push("/");
   };
+
+  setTimeout(() => setShowLoading(false), 3000);
+
   return (
     <ScreenWrapper screenBg={bg}>
-      <Center width="full" height="full" onClick={goBackHomeAndCloseDoor}>
-        <Center zIndex={7} height="full" width="90%">
-          <Center width="60%" paddingTop="100px" height="300px" ref={screenRef}>
-            <RandomText parentElement={screenRef} />
-            <RandomText parentElement={screenRef} />
-            <RandomText parentElement={screenRef} />
-            <RandomText parentElement={screenRef} />
-            <RandomText parentElement={screenRef} />
-            <RandomText parentElement={screenRef} />
-            <RandomText parentElement={screenRef} />
+      {showLoading ? (
+        <Image src="nocheverse-flashing-text.gif" height="full" />
+      ) : (
+        <Center width="full" height="full" onClick={goBackHomeAndCloseDoor}>
+          <Center zIndex={7} height="full" width="90%">
+            <Center
+              width="60%"
+              paddingTop="100px"
+              height="300px"
+              ref={screenRef}
+            >
+              <RandomText parentElement={screenRef} />
+              <RandomText parentElement={screenRef} />
+              <RandomText parentElement={screenRef} />
+              <RandomText parentElement={screenRef} />
+              <RandomText parentElement={screenRef} />
+              <RandomText parentElement={screenRef} />
+              <RandomText parentElement={screenRef} />
+            </Center>
           </Center>
         </Center>
-      </Center>
+      )}
     </ScreenWrapper>
   );
 };
