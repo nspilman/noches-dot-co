@@ -23,3 +23,8 @@ a {
   font-weight: normal;
   font-style: normal;
 }
+
+@font-face {
+  font-family: "roboto";
+  src: url("/fonts/RobotoMono-VariableFont_wght.ttf") format("truetype");
+}
