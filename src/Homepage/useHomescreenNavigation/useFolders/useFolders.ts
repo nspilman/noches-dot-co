@@ -4,7 +4,7 @@ import { openExternalLink } from "utils/openExternalLink";
 const theGardenPresave =
   "https://distrokid.com/hyperfollow/noches/the-garden-2";
 
-const cookThuglessInstagram = "https://www.instagram.com/cookthugless/?hl=en";
+const instagram = "https://www.instagram.com/noches_exe/";
 const tiktok = "https://www.tiktok.com/@noches.exe";
 export const useFolders = ({
   isEasterEggActive,
@@ -42,7 +42,7 @@ export const useFolders = ({
         {
           label: "Instagram" as const,
           icon: "/instagram.png",
-          onClick: () => openExternalLink(cookThuglessInstagram),
+          onClick: () => openExternalLink(instagram),
         },
         {
           label: "TikTok" as const,
