@@ -14,7 +14,7 @@ export const Window = ({
     <Center width="100%" height="100%" position="absolute" zIndex={1000}>
       <Box
         backgroundColor="#c6c6c6"
-        width="72"
+        width="64"
         borderTop="2px solid #efefef"
         borderLeft="2px solid #efefef"
         borderRight="2px solid #000"
