@@ -23,6 +23,7 @@ export const Phone = ({
         position="absolute"
         zIndex={2}
         display={{ base: "none", sm: "block" }}
+        pointerEvents="none"
       >
         <Image src="iphone.png" width="xs" maxHeight="unset" maxWidth="unset" />
       </Box>
