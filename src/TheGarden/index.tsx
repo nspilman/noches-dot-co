@@ -19,7 +19,7 @@ export const TheGarden = () => {
         <Image src="/the-garden-page.png" width="full" />
         <Box
           position="absolute"
-          top="16"
+          top="20"
           fontFamily="roboto"
           color="white"
           px="2"
