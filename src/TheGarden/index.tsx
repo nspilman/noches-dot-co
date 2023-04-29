@@ -16,7 +16,7 @@ export const TheGarden = () => {
   return (
     <ScreenWrapper screenBg={""}>
       <Box position="relative">
-        <Image src="/the-garden-page.png" />
+        <Image src="/the-garden-page.png" width="full" />
         <Box
           position="absolute"
           top="16"

@@ -7,13 +7,13 @@ export const PickAStory = () => {
   return (
     <ScreenWrapper screenBg={""}>
       <>
-        <Image src="/pick-a-story-bg.png" />
+        <Image src="/pick-a-story-header.png" width="full" />
         <Box
-          position="absolute"
-          top="230px"
           fontFamily="roboto"
           lineHeight="1"
           letterSpacing="tight"
+          backgroundImage="/pick-a-story-body-bg.png"
+          backgroundSize="cover"
         >
           <Text px="4" fontSize="3xs">
             1.The Player acknowledges and agrees that participating in the game
@@ -67,50 +67,54 @@ export const PickAStory = () => {
             who may try to bring a claim on your behalf.
           </Text>
         </Box>
-
-        <Button
-          px="0"
-          background="unset"
-          _hover={{ background: "unset" }}
-          onClick={() => router.push("/the-garden")}
-          position="absolute"
-          top="935px"
-          left="60px"
+        <Box
+          backgroundImage="/pick-a-story-footer.png"
+          height="400px"
+          backgroundSize="cover"
+          display={"flex"}
+          alignItems="center"
+          justifyContent="center"
         >
-          <Box
-            zIndex={4}
-            width="100px"
-            height="50px"
-            backgroundImage="/the-garden-button-no-glow.png"
-            backgroundPosition={"center"}
-            backgroundSize="cover"
-            _hover={{
-              backgroundImage: "/garden-button-glow.png",
-            }}
-          />
-        </Button>
+          <Box pt="100px">
+            <Button
+              px="0"
+              background="unset"
+              _hover={{ background: "unset" }}
+              onClick={() => router.push("/the-garden")}
+            >
+              <Box
+                zIndex={4}
+                width="100px"
+                height="50px"
+                backgroundImage="/the-garden-button-no-glow.png"
+                backgroundPosition={"center"}
+                backgroundSize="cover"
+                _hover={{
+                  backgroundImage: "/garden-button-glow.png",
+                }}
+              />
+            </Button>
 
-        <Button
-          px="0"
-          background="unset"
-          _hover={{ background: "unset" }}
-          onClick={() => router.push("/the-garden")}
-          position="absolute"
-          top="935px"
-          left="160px"
-        >
-          <Box
-            zIndex={4}
-            width="100px"
-            height="50px"
-            backgroundImage="/ugly-boy-button-no-glow.png"
-            backgroundPosition={"center"}
-            backgroundSize="cover"
-            _hover={{
-              backgroundImage: "/ugly-boy-button-glow.png",
-            }}
-          />
-        </Button>
+            <Button
+              px="0"
+              background="unset"
+              _hover={{ background: "unset" }}
+              onClick={() => router.push("/the-garden")}
+            >
+              <Box
+                zIndex={4}
+                width="100px"
+                height="50px"
+                backgroundImage="/ugly-boy-button-no-glow.png"
+                backgroundPosition={"center"}
+                backgroundSize="cover"
+                _hover={{
+                  backgroundImage: "/ugly-boy-button-glow.png",
+                }}
+              />
+            </Button>
+          </Box>
+        </Box>
       </>
     </ScreenWrapper>
   );
