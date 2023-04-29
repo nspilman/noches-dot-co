@@ -7,10 +7,13 @@ export const TheGardenPromo = () => {
   return (
     <ScreenWrapper screenBg={""}>
       <Box width="full" height="full" background="black" display="flex">
-        <video width="100%" height="100%" controls autoPlay={true}>
-          <source src="/the-garden-promo-pt-1.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        <iframe
+          src={"https://www.youtube.com/embed/F2SftCkhH3Y"}
+          title="The Garden Promo pt 1"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+        />
       </Box>
     </ScreenWrapper>
   );
