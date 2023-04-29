@@ -28,7 +28,7 @@ export const TheGarden = () => {
             Look at this beautiful garden
           </Heading>
           <Text fontSize="3xs">
-            Imagine stepping into a serene oasis of natural beauty, surrounded
+            {`Imagine stepping into a serene oasis of natural beauty, surrounded
             by vibrant colors, delightful scents, and the soothing sounds of a
             tranquil water feature. This is the world of a luxury garden, where
             every detail has been carefully crafted to transport you to a place
@@ -44,7 +44,7 @@ export const TheGarden = () => {
             It's a breathtakingly beautiful environment that will captivate your
             senses and transport you to a world of relaxation and tranquility.
             So come and immerse yourself in the luxury garden experience, and
-            discover the beauty and serenity that awaits you.
+            discover the beauty and serenity that awaits you.`}
           </Text>
         </Box>
         <Image
