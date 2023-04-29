@@ -69,7 +69,7 @@ export const PickAStory = () => {
         </Box>
         <Box
           backgroundImage="/pick-a-story-footer.png"
-          height="400px"
+          height="500px"
           backgroundSize="cover"
           display={"flex"}
           alignItems="center"
