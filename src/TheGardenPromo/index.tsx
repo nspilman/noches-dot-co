@@ -8,6 +8,7 @@ export const TheGardenPromo = () => {
     <ScreenWrapper screenBg={""}>
       <Box width="full" height="full" background="black" display="flex">
         <iframe
+          width="100%"
           src={"https://www.youtube.com/embed/F2SftCkhH3Y"}
           title="The Garden Promo pt 1"
           frameBorder="0"
