@@ -99,7 +99,7 @@ export const PickAStory = () => {
               px="0"
               background="unset"
               _hover={{ background: "unset" }}
-              onClick={() => router.push("/the-garden")}
+              onClick={() => router.push("/ugly-boy")}
             >
               <Box
                 zIndex={4}
