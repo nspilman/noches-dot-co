@@ -84,7 +84,7 @@ export const Homepage = () => {
           py="8"
           zIndex="3"
         >
-          <IconButton
+          <NochesButton
             label="Recycling Bin"
             icon={
               easterEggStep === "disabled"

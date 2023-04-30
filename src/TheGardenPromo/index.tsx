@@ -1,4 +1,4 @@
-import { Image, Box, keyframes, Button, Center } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { ScreenWrapper } from "components/ScreenWrapper/ScreenWrapper";
 import { useRouter } from "next/router";
 
