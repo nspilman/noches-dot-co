@@ -17,7 +17,7 @@ export const Phone = ({
       backgroundColor="gray.800"
       fontFamily={"Arial,sans-serif"}
       position="relative"
-      height={{ base: "full", sm: "658px" }}
+      height={{ base: "full", sm: "41.125rem" }}
     >
       <Box
         position="absolute"

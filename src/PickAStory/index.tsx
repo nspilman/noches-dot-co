@@ -69,13 +69,13 @@ export const PickAStory = () => {
         </Box>
         <Box
           backgroundImage="/pick-a-story-footer.png"
-          height="500px"
+          height="31.25rem"
           backgroundSize="cover"
           display={"flex"}
           alignItems="center"
           justifyContent="center"
         >
-          <Box pt="100px">
+          <Box pt="6.25rem">
             <Button
               px="0"
               background="unset"
@@ -84,8 +84,8 @@ export const PickAStory = () => {
             >
               <Box
                 zIndex={4}
-                width="100px"
-                height="50px"
+                width="6.25rem"
+                height="3.125rem"
                 backgroundImage="/the-garden-button-no-glow.png"
                 backgroundPosition={"center"}
                 backgroundSize="cover"
@@ -103,8 +103,8 @@ export const PickAStory = () => {
             >
               <Box
                 zIndex={4}
-                width="100px"
-                height="50px"
+                width="6.25rem"
+                height="3.125rem"
                 backgroundImage="/ugly-boy-button-no-glow.png"
                 backgroundPosition={"center"}
                 backgroundSize="cover"

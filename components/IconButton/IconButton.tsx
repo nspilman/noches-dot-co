@@ -38,14 +38,14 @@ export const IconButton = ({
       onContextMenu={onContextMenu}
     >
       <Center flexDirection="column">
-        <Image src={icon} width="34px" height="40px" pb="1" />
+        <Image src={icon} width="2.125rem" height="2.5rem" pb="1" />
         <Text
           fontWeight="light"
           color={labelColor}
           textShadow={"0 0 10px 2px rgba(0, 0, 0, 0.7)"}
           wordBreak="break-word"
           whiteSpace="normal"
-          width={"90px"}
+          width={"5.625rem"}
         >
           {label}
         </Text>

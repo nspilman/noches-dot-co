@@ -18,8 +18,8 @@ export const TheGardenLanding = () => {
             >
               <Box
                 zIndex={4}
-                width="120px"
-                height="50px"
+                width="7.5rem"
+                height="3.125rem"
                 backgroundImage="/play-now-button.png"
                 backgroundPosition={"center"}
                 backgroundSize="cover"

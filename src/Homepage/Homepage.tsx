@@ -62,9 +62,9 @@ export const Homepage = () => {
                 : "/door-open.png"
             }
             position="absolute"
-            right="100px"
-            top="400px"
-            width="100px"
+            right="6.25rem"
+            top="25rem"
+            width="6.25rem"
             maxWidth="unset"
             onClick={() =>
               setEasterEggStep(

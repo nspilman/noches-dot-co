@@ -7,7 +7,7 @@ interface Props {
 
 export const Navigation = ({ onClickClickHere, onClickDontClick }: Props) => {
   return (
-    <Stack flexDirection="row" position="absolute" top="500px">
+    <Stack flexDirection="row" position="absolute" top="31.25rem">
       <Box>
         <Button
           px="0"
@@ -18,8 +18,8 @@ export const Navigation = ({ onClickClickHere, onClickDontClick }: Props) => {
         >
           <Box
             zIndex={4}
-            width="120px"
-            height="50px"
+            width="7.5rem"
+            height="3.125rem"
             backgroundImage="/click-here-button-no-glow.png"
             backgroundPosition={"center"}
             backgroundSize="cover"
@@ -36,8 +36,8 @@ export const Navigation = ({ onClickClickHere, onClickDontClick }: Props) => {
         >
           <Box
             zIndex={4}
-            width="120px"
-            height="50px"
+            width="7.5rem"
+            height="3.125rem"
             backgroundImage="/dont-click-here-button-no-glow.png"
             backgroundPosition={"center"}
             backgroundSize="cover"
