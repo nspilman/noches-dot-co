@@ -1,5 +1,6 @@
 import { Box, Heading, Input, Stack, Text } from "@chakra-ui/react";
 import { useEmailCapture } from "context/EmailCaptureContext";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { getSupabaseClient } from "utils/getSupabaseClient";
 import { ActionButton } from "../ActionButton";
@@ -17,7 +18,13 @@ export const EmailCaptureWindow = () => {
     setShowEmailCapture(false);
   };
 
+  const [isInError, setIsInError] = useState(false);
+
   const submitEmail = async ({ email }: { email: string }) => {
+    setIsInError(false);
+    if (!email.length) {
+      return setIsInError(true);
+    }
     const { status } = await supabase
       .from("email_collection")
       .insert({ email: email.toLowerCase() });
@@ -25,6 +32,11 @@ export const EmailCaptureWindow = () => {
       close();
     }
   };
+
+  const getBorder = (color: string) => {
+    return `2px solid ${isInError ? "red" : color}`;
+  };
+
   return (
     <Window onClose={close} windowName="Join the Haunted Mailing List">
       <Box>
@@ -37,10 +49,10 @@ export const EmailCaptureWindow = () => {
             type="email"
             backgroundColor="whiteAlpha.800"
             borderRadius="0"
-            borderRight="1px solid #efefef"
-            borderBottom="1px solid #efefef"
-            borderLeft="1px solid #000"
-            borderTop="1px solid #000"
+            borderRight={getBorder("#efefef")}
+            borderBottom={getBorder("#efefef")}
+            borderLeft={getBorder("#000")}
+            borderTop={getBorder("#000")}
             height="1.5rem"
             px="1"
             fontSize="xs"
