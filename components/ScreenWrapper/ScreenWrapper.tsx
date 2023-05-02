@@ -1,7 +1,7 @@
 import { Center, Box } from "@chakra-ui/react";
 import { Phone } from "./Phone";
 import { useEasterEgg } from "context";
-import { EmailCaptureWindow } from "components/EmailCaptureWindow/EmailCaptureWindow";
+import { EmailCaptureWindow } from "components/EmailCaptureWindow";
 import { useEmailCapture } from "context/EmailCaptureContext";
 
 export const ScreenWrapper = ({
