@@ -6,4 +6,5 @@ export type Label =
   | "Noches.exe"
   | "Spotify"
   | "TikTok"
+  | "Mailing List"
   | "Instagram";
