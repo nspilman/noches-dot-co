@@ -5,6 +5,7 @@ import { Folder } from "./Folder";
 import { ActionWindow } from "./ActionWindow";
 import { NochesButton } from "./NochesButton/NochesButton";
 import { useHomescreenNavigation } from "./useHomescreenNavigation";
+import { EmailCaptureWindow } from "components/EmailCaptureWindow/EmailCaptureWindow";
 
 export const Homepage = () => {
   const { folder, openFolder, closeFolder, action } = useHomescreenNavigation();

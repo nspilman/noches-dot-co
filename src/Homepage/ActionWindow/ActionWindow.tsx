@@ -1,4 +1,5 @@
-import { Box, Button, Stack, Text } from "@chakra-ui/react";
+import { Box, Stack, Text } from "@chakra-ui/react";
+import { ActionButton } from "components/ActionButton";
 import { Window, Props as WindowProps } from "components/Window";
 
 interface Props extends WindowProps {
@@ -29,30 +30,5 @@ export const ActionWindow = ({
         </Stack>
       </Stack>
     </Window>
-  );
-};
-
-const ActionButton = ({
-  label,
-  onClick,
-}: {
-  label: string;
-  onClick: () => void;
-}) => {
-  return (
-    <Button
-      onClick={onClick}
-      background="rgb(192, 192, 192)"
-      borderTop="2px solid #efefef"
-      borderLeft="2px solid #efefef"
-      borderRight="2px solid #000"
-      borderBottom="2px solid #000"
-      height="6"
-      borderRadius="0"
-    >
-      <Text fontSize="xs" fontWeight="hairline">
-        {label}
-      </Text>
-    </Button>
   );
 };

@@ -1,9 +1,18 @@
-import { Image, Box, keyframes, Button, Center } from "@chakra-ui/react";
+import { Image, Box, Button, Center } from "@chakra-ui/react";
 import { ScreenWrapper } from "components/ScreenWrapper/ScreenWrapper";
+import { useEmailCapture } from "context/EmailCaptureContext";
 import { useRouter } from "next/router";
 
 export const TheGardenLanding = () => {
   const router = useRouter();
+  const { setShowEmailCapture, onCloseCallback, setBlurb } = useEmailCapture();
+  const onClick = () => {
+    onCloseCallback.current = () => router.push("/the-garden-promo");
+    setBlurb(`See how much further this rabbit hole
+    goes, but first, let us keep you posted on the cool shit we've got in
+    store for you.`);
+    setShowEmailCapture(true);
+  };
   return (
     <ScreenWrapper screenBg={"black"}>
       <Box position="relative">
@@ -14,7 +23,7 @@ export const TheGardenLanding = () => {
               px="0"
               background="unset"
               _hover={{ background: "unset" }}
-              onClick={() => router.push("/the-garden-promo")}
+              onClick={onClick}
             >
               <Box
                 zIndex={4}

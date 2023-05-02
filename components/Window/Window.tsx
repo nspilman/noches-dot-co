@@ -28,7 +28,9 @@ export const Window = ({
           alignItems="center"
           px="1"
         >
-          <Text color="white">{windowName}</Text>
+          <Text color="white" fontFamily="roboto" fontSize="xs">
+            {windowName}
+          </Text>
           <Button
             height="4"
             width="4"

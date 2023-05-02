@@ -7,6 +7,7 @@ import { EasterEggContextProvider } from "context";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { pageview } from "utils/analytics";
+import { EmailCaptureContextProvider } from "context/EmailCaptureContext";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -24,18 +25,20 @@ function MyApp({ Component, pageProps }: AppProps) {
     };
   }, [router.events]);
   return (
-    <EasterEggContextProvider>
-      <ChakraProvider theme={theme}>
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1"
-        ></meta>
-        <Head>
-          <title>Noches | Welcome to the Nocheverse</title>
-        </Head>
-        <Component {...pageProps} />
-      </ChakraProvider>
-    </EasterEggContextProvider>
+    <EmailCaptureContextProvider>
+      <EasterEggContextProvider>
+        <ChakraProvider theme={theme}>
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1"
+          ></meta>
+          <Head>
+            <title>Noches | Welcome to the Nocheverse</title>
+          </Head>
+          <Component {...pageProps} />
+        </ChakraProvider>
+      </EasterEggContextProvider>
+    </EmailCaptureContextProvider>
   );
 }
 
