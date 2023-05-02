@@ -31,9 +31,7 @@ export const ScreenWrapper = ({
       ></Box>
       <Phone screenBg={screenBg}>
         <>
-          {showEmailCapture && (
-            <EmailCaptureWindow close={() => setShowEmailCapture(false)} />
-          )}
+          {showEmailCapture && <EmailCaptureWindow />}
           {children}
         </>
       </Phone>

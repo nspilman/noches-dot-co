@@ -1,3 +1,4 @@
+import { useEmailCapture } from "context/EmailCaptureContext";
 import { useState } from "react";
 import { openExternalLink } from "utils/openExternalLink";
 
@@ -14,6 +15,7 @@ export const useFolders = ({
   setNochesExe: () => void;
 }) => {
   const [folderKey, setFolderKey] = useState<keyof typeof folders>();
+  const { setShowEmailCapture } = useEmailCapture();
 
   const folders = {
     music: {
@@ -48,6 +50,11 @@ export const useFolders = ({
           label: "TikTok" as const,
           icon: "/tiktok.png",
           onClick: () => openExternalLink(tiktok),
+        },
+        {
+          label: "Mailing List" as const,
+          icon: "/email-icon.png",
+          onClick: () => setShowEmailCapture(true),
         },
       ],
     },

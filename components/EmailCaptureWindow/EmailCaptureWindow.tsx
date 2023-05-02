@@ -38,7 +38,11 @@ export const EmailCaptureWindow = () => {
   };
 
   return (
-    <Window onClose={close} windowName="Join the Haunted Mailing List">
+    <Window
+      onClose={close}
+      windowName="Join the Haunted Mailing List"
+      zIndex={1}
+    >
       <Box>
         <Heading>Mailing List</Heading>
         <Text fontFamily="roboto" fontSize="2xs" pb="2">

@@ -28,7 +28,6 @@ async function sendEventToGoogleAnalytics(data: EventData) {
     }
     const clientId = uuidv4();
     const url = `${endpoint}&t=pageview&cid=${clientId}&dp=${page_path}`;
-    console.log({ url });
     return await fetch(url, { method: "POST" });
   } else if (type === "event") {
     const { action, params } = rest;
@@ -51,7 +50,6 @@ export default async function handler(
   if (req.method === "POST") {
     try {
       const result = await sendEventToGoogleAnalytics(req.body);
-      console.log({ result: await result });
       res.status(200).json({ message: "Event sent to Google Analytics" });
     } catch (error) {
       console.error("Error sending event to Google Analytics:", error);

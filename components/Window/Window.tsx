@@ -3,15 +3,22 @@ import { Box, Center, Text, Button } from "@chakra-ui/react";
 export interface Props {
   windowName: string;
   onClose: () => void;
+  zIndex?: number;
 }
 
 export const Window = ({
   windowName,
   onClose,
   children,
+  zIndex,
 }: Props & { children: React.ReactElement }) => {
   return (
-    <Center width="100%" height="100%" position="absolute" zIndex={1000}>
+    <Center
+      width="100%"
+      height="100%"
+      position="absolute"
+      zIndex={1000 + (zIndex || 0)}
+    >
       <Box
         backgroundColor="#c6c6c6"
         width="64"
