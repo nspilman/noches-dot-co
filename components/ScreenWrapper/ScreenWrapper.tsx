@@ -1,7 +1,7 @@
 import { Center, Box } from "@chakra-ui/react";
 import { Phone } from "./Phone";
 import { useEasterEgg } from "context";
-import { EmailCaptureWindow } from "components/EmailCaptureWindow";
+import { EmailCollectionWindow } from "components/EmailCollectionWindow";
 import { useEmailCapture } from "context/EmailCaptureContext";
 
 export const ScreenWrapper = ({
@@ -31,7 +31,7 @@ export const ScreenWrapper = ({
       ></Box>
       <Phone screenBg={screenBg}>
         <>
-          {showEmailCapture && <EmailCaptureWindow />}
+          {showEmailCapture && <EmailCollectionWindow />}
           {children}
         </>
       </Phone>
