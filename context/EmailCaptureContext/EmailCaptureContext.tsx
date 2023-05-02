@@ -18,7 +18,7 @@ export const EmailCaptureContextProvider = ({
 }: {
   children: React.ReactElement;
 }) => {
-  const [showEmailCapture, setShowEmailCapture] = useState(true);
+  const [showEmailCapture, setShowEmailCapture] = useState(false);
   const [blurb, setBlurb] = useState("");
   const onCloseCallback = useRef<(() => void) | null>(null);
 

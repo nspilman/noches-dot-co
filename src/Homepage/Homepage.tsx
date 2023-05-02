@@ -1,11 +1,9 @@
 import { Box, Image } from "@chakra-ui/react";
-import { IconButton } from "components/IconButton";
 import { useEasterEgg } from "context";
 import { Folder } from "./Folder";
 import { ActionWindow } from "./ActionWindow";
 import { NochesButton } from "./NochesButton/NochesButton";
 import { useHomescreenNavigation } from "./useHomescreenNavigation";
-import { EmailCaptureWindow } from "components/EmailCaptureWindow/EmailCaptureWindow";
 
 export const Homepage = () => {
   const { folder, openFolder, closeFolder, action } = useHomescreenNavigation();
