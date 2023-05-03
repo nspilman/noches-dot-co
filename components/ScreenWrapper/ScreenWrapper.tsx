@@ -9,10 +9,10 @@ export const ScreenWrapper = ({
   screenBg,
 }: {
   children: React.ReactElement;
-  screenBg: string;
+  screenBg?: string;
 }) => {
   const { easterEggStep } = useEasterEgg();
-  const { showEmailCapture, setShowEmailCapture } = useEmailCapture();
+  const { showEmailCapture } = useEmailCapture();
   return (
     <Center
       backgroundImage="/noches_bedroom.png"

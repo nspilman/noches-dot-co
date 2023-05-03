@@ -6,7 +6,7 @@ export const Phone = ({
   screenBg,
 }: {
   children: React.ReactElement;
-  screenBg: string;
+  screenBg?: string;
 }): React.ReactElement => {
   return (
     <Box

@@ -1,21 +1,39 @@
-import { Image, Box, Button, Center } from "@chakra-ui/react";
+import { Image, Box, Button, Center, Stack } from "@chakra-ui/react";
+import { ActionButton } from "components/ActionButton";
 import { ScreenWrapper } from "components/ScreenWrapper/ScreenWrapper";
+import { Window } from "components/Window";
 import { useEmailCapture } from "context/EmailCaptureContext";
 import { useRouter } from "next/router";
+import { useState } from "react";
 
 export const TheGardenLanding = () => {
   const router = useRouter();
-  const { setShowEmailCapture, onCloseCallback, setBlurb } = useEmailCapture();
-  const onClick = () => {
-    onCloseCallback.current = () => router.push("/the-garden-promo");
-    setBlurb(`See how much further this rabbit hole
-    goes, but first, let us keep you posted on the cool shit we've got in
-    store for you.`);
-    setShowEmailCapture(true);
-  };
+  const [showWarning, setShowWarning] = useState(false);
+
   return (
     <ScreenWrapper screenBg={"black"}>
       <Box position="relative">
+        {showWarning && (
+          <Window
+            windowName="Security Warning"
+            onClose={() => setShowWarning(false)}
+          >
+            <>
+              <Image src="/launch-video-warning.png" />
+              <Stack direction={"row"} justifyContent="flex-end">
+                <ActionButton
+                  label="No"
+                  onClick={() => setShowWarning(false)}
+                />
+                <ActionButton
+                  label="Yes"
+                  onClick={() => router.push("/the-garden-promo")}
+                />
+              </Stack>
+            </>
+          </Window>
+        )}
+
         <Image src="/landing-page-bg.png" />
         <Box height="60vh" backgroundColor="black">
           <Center>
@@ -23,7 +41,7 @@ export const TheGardenLanding = () => {
               px="0"
               background="unset"
               _hover={{ background: "unset" }}
-              onClick={onClick}
+              onClick={() => setShowWarning(true)}
             >
               <Box
                 zIndex={4}

@@ -5,11 +5,21 @@ export const Screen = ({
   screenBg,
 }: {
   children: React.ReactElement;
-  screenBg: string;
+  screenBg?: string;
 }): React.ReactElement => {
+  const customScrollStyles = {
+    "&::-webkit-scrollbar": {
+      display: "none",
+    },
+    "-webkit-overflow-scrolling": "touch",
+    scrollbarWidth: "none",
+    "-ms-overflow-style": "none",
+  };
+
   return (
     <Box
       backgroundImage={screenBg}
+      backgroundColor={"black"}
       backgroundSize="cover"
       backgroundPosition="center"
       height="full"
@@ -21,6 +31,7 @@ export const Screen = ({
       width={{ base: "100vw", sm: "unset" }}
       position="relative"
       overflow="scroll"
+      sx={customScrollStyles}
     >
       {children}
     </Box>
