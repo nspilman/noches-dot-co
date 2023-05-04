@@ -1,19 +1,28 @@
 import { Box, Image } from "@chakra-ui/react";
 import { ScreenWrapper } from "components/ScreenWrapper/ScreenWrapper";
-import { useRouter } from "next/router";
+import { useEmailCapture } from "context/EmailCaptureContext";
 
 export const TheGardenPromo = () => {
-  const router = useRouter();
+  const { setShowEmailCapture, setBlurb, onCloseCallback } = useEmailCapture();
+  const { goHome } = useNavigation();
+  const onVideoEnd = () => {
+    setBlurb(
+      "GET TO THE GARDEN. The Garden comes out May 19th. Let us keep you in the loop on the release and everything else we have in store."
+    );
+    onCloseCallback.current = () => goHome();
+    setShowEmailCapture(true);
+  };
   return (
-    <ScreenWrapper screenBg={""}>
+    <ScreenWrapper>
       <Box width="full" height="full" background="black" display="flex">
-        <VideoComponent />
+        <VideoComponent onVideoEnd={onVideoEnd} />
       </Box>
     </ScreenWrapper>
   );
 };
 
 import React, { useEffect, useRef } from "react";
+import { useNavigation } from "utils/useNavigation";
 
 declare global {
   interface Window {
@@ -21,7 +30,7 @@ declare global {
   }
 }
 
-const VideoComponent: React.FC = () => {
+const VideoComponent = ({ onVideoEnd }: { onVideoEnd: () => void }) => {
   const isLoaded = useRef(true);
   useEffect(() => {
     if (isLoaded.current) {
@@ -37,7 +46,7 @@ const VideoComponent: React.FC = () => {
           id: "lqd5lvcti5",
           onReady: function (video: any) {
             video.bind("end", function () {
-              console.log("Video Ended!");
+              onVideoEnd();
               // perform your action here
             });
           },

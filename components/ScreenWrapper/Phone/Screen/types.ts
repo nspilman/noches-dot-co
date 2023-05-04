@@ -1,10 +1,10 @@
 export type Label =
-  | "My Music"
+  | "My Computer"
   | "My Merch"
   | "Internet Explorer"
   | "Recycling Bin"
   | "Noches.exe"
-  | "Spotify"
+  | "THE GARDEN"
   | "TikTok"
   | "Mailing List"
   | "Instagram";

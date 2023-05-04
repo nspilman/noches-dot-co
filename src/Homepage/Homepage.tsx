@@ -32,8 +32,8 @@ export const Homepage = () => {
         >
           <Box py={"8"}>
             <NochesButton
-              label="My Music"
-              icon="/music.png"
+              label="My Computer"
+              icon="/my-computer.png"
               onClick={() => openFolder("music")}
             />
           </Box>

@@ -19,11 +19,11 @@ export const useFolders = ({
 
   const folders = {
     music: {
-      windowName: "My Music" as const,
+      windowName: "My Computer" as const,
       buttonProps: [
         {
-          label: "Spotify" as const,
-          icon: "/spotify.png",
+          label: "THE GARDEN" as const,
+          icon: "/moon_pixel_icon.png",
           onClick: () => openExternalLink(theGardenPresave),
         },
       ],

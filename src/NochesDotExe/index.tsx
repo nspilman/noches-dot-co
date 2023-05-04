@@ -21,7 +21,7 @@ export const NochesDotExe = () => {
   const bg = showLoading ? "nocheverse-flashing-text.gif" : "/nochesExeBg.png";
   const screenRef = useRef(null);
 
-  setTimeout(() => setShowLoading(false), 3000);
+  setTimeout(() => setShowLoading(false), 1500);
 
   return (
     <ScreenWrapper screenBg={bg}>
