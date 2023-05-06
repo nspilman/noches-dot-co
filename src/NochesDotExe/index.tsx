@@ -1,7 +1,6 @@
 import { Center } from "@chakra-ui/react";
 import RandomText from "components/RandomText/RandomText";
 import { ScreenWrapper } from "components/ScreenWrapper/ScreenWrapper";
-import { PHONE_NUMBER } from "consts";
 import { useShowPhoneNumber } from "context/ShowPhoneNumberContext";
 import { useRouter } from "next/router";
 import React, { useEffect, useRef, useState } from "react";
@@ -25,9 +24,7 @@ export const NochesDotExe = () => {
   useEffect(() => {
     if (dontClickClicked) {
       setTimeout(() => {
-        setBlurb(
-          `Unexpected Error. For technical support please call ${PHONE_NUMBER}`
-        );
+        setBlurb(`Unexpected Error. For technical support please call `);
         onCloseCallback.current = () => {
           setDontClickClicked(false);
           goHome();

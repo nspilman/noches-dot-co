@@ -1,7 +1,5 @@
 import { Image } from "@chakra-ui/react";
 import { ScreenWrapper } from "components/ScreenWrapper/ScreenWrapper";
-import { PHONE_NUMBER } from "consts";
-import { useEmailCapture } from "context/EmailCaptureContext";
 import { useShowPhoneNumber } from "context/ShowPhoneNumberContext";
 import { useNavigation } from "utils/useNavigation";
 
@@ -11,9 +9,7 @@ export const UglyBoy = () => {
     useShowPhoneNumber();
   const onClick = () => {
     onCloseCallback.current = () => goHome();
-    setBlurb(
-      `Unexpected Error - We didn't get your call. Please call ${PHONE_NUMBER}`
-    );
+    setBlurb(`Unexpected Error - We didn't get your call. Please call `);
 
     setShowPhoneNumber(true);
   };

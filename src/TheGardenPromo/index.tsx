@@ -1,6 +1,5 @@
 import { Box, Image } from "@chakra-ui/react";
 import { ScreenWrapper } from "components/ScreenWrapper/ScreenWrapper";
-import { PHONE_NUMBER } from "consts";
 import { useShowPhoneNumber } from "context/ShowPhoneNumberContext";
 
 export const TheGardenPromo = () => {
@@ -8,7 +7,7 @@ export const TheGardenPromo = () => {
     useShowPhoneNumber();
   const { goHome } = useNavigation();
   const onVideoEnd = () => {
-    setBlurb(`YOU'RE RUNNING OUT OF TIME. CALL ${PHONE_NUMBER}`);
+    setBlurb(`YOU'RE RUNNING OUT OF TIME. CALL `);
     onCloseCallback.current = () => goHome();
     setShowPhoneNumber(true);
   };
