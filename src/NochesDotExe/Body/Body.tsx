@@ -3,7 +3,7 @@ import { Stack, Text, Box } from "@chakra-ui/react";
 export const Body = () => {
   return (
     <Stack
-      fontSize="sm"
+      fontSize="xs"
       alignItems="center"
       px="4"
       fontFamily="body"
@@ -20,7 +20,7 @@ export const Body = () => {
         other side. You, my friend, are powerful beyond measure, capable of
         achieving greatness beyond all your wildest dreams
       </Text>
-      <Text fontWeight="bold" fontSize="sm" color="red.600" py="2">
+      <Text fontWeight="bold" fontSize="xs" color="red.600" py="1">
         LET GO OF ALL DOUBT AND SURRENDER YOURSELF
       </Text>
       <Text>
