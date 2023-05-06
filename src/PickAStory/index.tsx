@@ -9,13 +9,13 @@ export const PickAStory = () => {
       <>
         <Image src="/pick-a-story-header.png" width="full" />
         <Box
-          fontFamily="roboto"
           lineHeight="1"
           letterSpacing="tight"
           backgroundImage="/pick-a-story-body-bg.png"
           backgroundSize="cover"
+          fontFamily="body"
         >
-          <Text px="4" fontSize="3xs">
+          <Text px="2" fontSize="2xs">
             1.The Player acknowledges and agrees that participating in the game
             may involve risks of bodily injury, property damage, and other
             damages or losses. The Player agrees to waive all claims and
@@ -33,31 +33,31 @@ export const PickAStory = () => {
             associated with participation in the game.
           </Text>
 
-          <Text fontSize="2xs" px="2" py="2">
-            1.By participating in this game, you acknowledge that it involves
+          <Text fontSize="xs" px="1" py="2">
+            1. By participating in this game, you acknowledge that it involves
             life-threatening activities that could result in injury, permanent
             disability, or even death. You are fully responsible for your own
             safety and well-being, and you assume all risks associated with the
             game. The creator of this game assumes no liability for any harm
             that may come to you as a result of your participation.
           </Text>
-          <Text fontSize="2xs" px="2" py="2">
-            2.You must be at least 18 years of age to participate in this game.
+          <Text fontSize="xs" px="1" py="2">
+            2. You must be at least 18 years of age to participate in this game.
             Minors are strictly prohibited from taking part in any
             life-threatening activities, and anyone found to be violating this
             rule will be immediately disqualified and reported to the
             authorities.
           </Text>
-          <Text fontSize="2xs" px="2" py="2">
-            3.You agree to follow all rules and instructions provided by the
+          <Text fontSize="xs" px="1" py="2">
+            3. You agree to follow all rules and instructions provided by the
             game creator and/or any authorized personnel. Failure to comply with
             these rules may result in immediate disqualification and/or removal
             from the game premises. The creator reserves the right to modify or
             update the rules at any time, and it is your responsibility to stay
             informed of any changes.
           </Text>
-          <Text fontSize="2xs" px="2" py="2">
-            4.By participating in this game, you agree to release the creator
+          <Text fontSize="xs" px="1" py="2">
+            4. By participating in this game, you agree to release the creator
             from any and all liability, including but not limited to injury,
             death, property damage, or any other harm that may occur during the
             game. You also agree to indemnify and hold the creator harmless

@@ -20,14 +20,14 @@ export const TheGarden = () => {
         <Box
           position="absolute"
           top="20"
-          fontFamily="roboto"
+          fontFamily="body"
           color="white"
           px="2"
         >
-          <Heading fontSize="sm" backgroundColor="red.500" marginRight={28}>
+          <Heading fontSize="lg" backgroundColor="red.500" marginRight={36}>
             Look at this beautiful garden
           </Heading>
-          <Text fontSize="3xs">
+          <Text fontSize="xs">
             {`Imagine stepping into a serene oasis of natural beauty, surrounded
             by vibrant colors, delightful scents, and the soothing sounds of a
             tranquil water feature. This is the world of a luxury garden, where

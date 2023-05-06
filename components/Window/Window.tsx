@@ -37,7 +37,7 @@ export const Window = ({
           alignItems="center"
           px="1"
         >
-          <Text color="white" fontFamily="roboto" fontSize="xs">
+          <Text color="white" fontFamily="body" fontSize="lg">
             {windowName}
           </Text>
           <Button

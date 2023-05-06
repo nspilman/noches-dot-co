@@ -21,10 +21,10 @@ export const ActionWindow = ({
             <Image src="/warning.png" width="100%" />
           </Center>
           <Text
-            fontSize="xs"
+            fontSize="lg"
             fontWeight="medium"
             pl="2"
-            fontFamily="roboto"
+            fontFamily="body"
             lineHeight="1.2"
             letterSpacing={0.1}
           >

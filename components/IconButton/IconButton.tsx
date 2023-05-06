@@ -27,7 +27,6 @@ export const IconButton = ({
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     e.preventDefault();
-    console.log("right click");
   };
   return (
     <Button
@@ -40,12 +39,13 @@ export const IconButton = ({
       <Center flexDirection="column">
         <Image src={icon} width="2.125rem" height="2.5rem" pb="1" />
         <Text
-          fontWeight="light"
           color={labelColor}
           textShadow={"0 0 10px 2px rgba(0, 0, 0, 0.7)"}
           wordBreak="break-word"
           whiteSpace="normal"
           width={"7rem"}
+          fontFamily="body"
+          fontSize={"lg"}
         >
           {label}
         </Text>

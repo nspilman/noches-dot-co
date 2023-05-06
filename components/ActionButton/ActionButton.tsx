@@ -21,7 +21,7 @@ export const ActionButton = ({
       borderRadius="0"
       type={type}
     >
-      <Text fontSize="xs" fontWeight="hairline">
+      <Text fontSize="sm" fontFamily="body">
         {label}
       </Text>
     </Button>

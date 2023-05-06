@@ -43,9 +43,9 @@ export const EmailCollectionWindow = () => {
       windowName="Join the Haunted Mailing List"
       zIndex={1}
     >
-      <Box>
+      <Box fontFamily="body">
         <Heading>Mailing List</Heading>
-        <Text fontFamily="roboto" fontSize="2xs" pb="2">
+        <Text fontFamily="body" fontSize="sm" pb="2">
           {blurb}
         </Text>
         <form onSubmit={handleSubmit(submitEmail)}>
@@ -59,11 +59,11 @@ export const EmailCollectionWindow = () => {
             borderTop={getBorder("#000")}
             height="1.5rem"
             px="1"
-            fontSize="xs"
+            fontSize="lg"
             placeholder="entresombras@noches.co"
             {...register("email")}
           />
-          <Text fontFamily="roboto" fontSize="3xs" py="2">
+          <Text fontSize="sm" py="2">
             {`We'll only ever use your email to tell you about cool shit we're doing`}
           </Text>
           <Stack direction="row" justifyContent="flex-end">

@@ -3,24 +3,24 @@ import { Stack, Text, Box } from "@chakra-ui/react";
 export const Body = () => {
   return (
     <Stack
-      fontSize="2xs"
+      fontSize="sm"
       alignItems="center"
       px="4"
-      fontFamily="roboto"
+      fontFamily="body"
       lineHeight={1}
     >
-      <Text fontWeight="bold" fontSize="sm">
+      <Text fontWeight="bold" fontSize="lg">
         Welcome to the{" "}
         <Text color="red.600" as="span">
           NOCHEVERSE
         </Text>
       </Text>
-      <Text fontSize="2xs">
+      <Text>
         If you are reading this, congratulations! You have stepped into the
         other side. You, my friend, are powerful beyond measure, capable of
         achieving greatness beyond all your wildest dreams
       </Text>
-      <Text fontWeight="bold" fontSize="2xs" color="red.600" py="2">
+      <Text fontWeight="bold" fontSize="sm" color="red.600" py="2">
         LET GO OF ALL DOUBT AND SURRENDER YOURSELF
       </Text>
       <Text>
