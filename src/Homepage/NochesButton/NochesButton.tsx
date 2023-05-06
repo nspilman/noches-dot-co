@@ -8,7 +8,7 @@ export const NochesButton = (props: Props) => {
   return easterEggStep === "doorOpen" ? (
     <IconButton
       label="Noches.exe"
-      icon="noches.png"
+      icon="home/noches.png"
       onClick={() => router.push("/noches-dot-exe")}
     />
   ) : (

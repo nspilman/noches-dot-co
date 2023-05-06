@@ -23,7 +23,7 @@ export const useFolders = ({
       buttonProps: [
         {
           label: "THE GARDEN" as const,
-          icon: "/moon_pixel_icon.png",
+          icon: "home/moon_pixel_icon.png",
           onClick: () => openExternalLink(theGardenPresave),
         },
       ],
@@ -33,7 +33,7 @@ export const useFolders = ({
       buttonProps: [
         {
           label: "My Merch" as const,
-          icon: "/folder.png",
+          icon: "/home/folder.png",
           onClick: () => console.log("gotMe"),
         },
       ],
@@ -43,17 +43,17 @@ export const useFolders = ({
       buttonProps: [
         {
           label: "Instagram" as const,
-          icon: "/instagram.png",
+          icon: "/home/instagram.png",
           onClick: () => openExternalLink(instagram),
         },
         {
           label: "TikTok" as const,
-          icon: "/tiktok.png",
+          icon: "/home/tiktok.png",
           onClick: () => openExternalLink(tiktok),
         },
         {
           label: "Mailing List" as const,
-          icon: "/email-icon.png",
+          icon: "/home/email-icon.png",
           onClick: () => setShowEmailCapture(true),
         },
       ],
@@ -65,7 +65,7 @@ export const useFolders = ({
         : [
             {
               label: "Noches.exe" as const,
-              icon: "/noches.png",
+              icon: "/home/noches.png",
               onClick: () => setNochesExe(),
             },
           ],

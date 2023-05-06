@@ -1,4 +1,4 @@
-import { Box, Stack, Text } from "@chakra-ui/react";
+import { Box, Stack, Text, Image, Center } from "@chakra-ui/react";
 import { ActionButton } from "components/ActionButton";
 import { Window, Props as WindowProps } from "components/Window";
 
@@ -17,10 +17,17 @@ export const ActionWindow = ({
     <Window windowName={windowName} onClose={onClose}>
       <Stack>
         <Stack direction="row" alignItems="center" p="2">
-          <Box>
-            <img src="/warning.png" />
-          </Box>
-          <Text fontSize="sm" fontWeight="hairline" pl="2">
+          <Center height="4rem" width="4rem">
+            <Image src="/warning.png" width="100%" />
+          </Center>
+          <Text
+            fontSize="xs"
+            fontWeight="medium"
+            pl="2"
+            fontFamily="roboto"
+            lineHeight="1.2"
+            letterSpacing={0.1}
+          >
             {text}
           </Text>
         </Stack>

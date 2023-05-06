@@ -11,7 +11,9 @@ export const Homepage = () => {
 
   return (
     <Box height="full">
-      {folder && <Folder {...folder} onClose={() => closeFolder()} />}
+      {folder && (
+        <Folder {...folder} onClose={() => closeFolder()} width="80%" />
+      )}
       {action && <ActionWindow {...action} />}
       <Box
         display="flex"
@@ -33,7 +35,7 @@ export const Homepage = () => {
           <Box py={"8"}>
             <NochesButton
               label="My Computer"
-              icon="/my-computer.png"
+              icon="home/my-computer.png"
               onClick={() => openFolder("music")}
             />
           </Box>
@@ -47,7 +49,7 @@ export const Homepage = () => {
           <Box py={"8"}>
             <NochesButton
               label="Internet Explorer"
-              icon="/internet_explorer.png"
+              icon="home/internet_explorer.png"
               onClick={() => openFolder("socials")}
             />
           </Box>
@@ -57,8 +59,8 @@ export const Homepage = () => {
           <Image
             src={
               easterEggStep === "nochesRestored"
-                ? "/door-closed.png"
-                : "/door-open.png"
+                ? "home/door-closed.png"
+                : "home/door-open.png"
             }
             position="absolute"
             right="6.25rem"
@@ -87,8 +89,8 @@ export const Homepage = () => {
             label="Recycling Bin"
             icon={
               easterEggStep === "disabled"
-                ? "/recycle_bin.png"
-                : "/empty-recycling-bin.png"
+                ? "home/recycle_bin.png"
+                : "home/empty-recycling-bin.png"
             }
             onClick={() => openFolder("recyclingBin")}
           />

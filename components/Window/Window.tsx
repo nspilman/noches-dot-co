@@ -4,6 +4,7 @@ export interface Props {
   windowName: string;
   onClose: () => void;
   zIndex?: number;
+  width?: string;
 }
 
 export const Window = ({
@@ -11,6 +12,7 @@ export const Window = ({
   onClose,
   children,
   zIndex,
+  width,
 }: Props & { children: React.ReactElement }) => {
   return (
     <Center
@@ -21,7 +23,7 @@ export const Window = ({
     >
       <Box
         backgroundColor="#c6c6c6"
-        width="64"
+        width={width || "full"}
         borderTop="2px solid #efefef"
         borderLeft="2px solid #efefef"
         borderRight="2px solid #000"

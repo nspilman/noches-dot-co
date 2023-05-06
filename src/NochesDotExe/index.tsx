@@ -1,22 +1,41 @@
 import { Center } from "@chakra-ui/react";
 import RandomText from "components/RandomText/RandomText";
 import { ScreenWrapper } from "components/ScreenWrapper/ScreenWrapper";
-import { useEasterEgg } from "context";
+import { PHONE_NUMBER } from "consts";
+import { useShowPhoneNumber } from "context/ShowPhoneNumberContext";
 import { useRouter } from "next/router";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { useNavigation } from "utils/useNavigation";
 import { Body } from "./Body";
 import { Navigation } from "./Navigation";
 
 export const NochesDotExe = () => {
   const router = useRouter();
-  const { setEasterEggStep } = useEasterEgg();
   const [showLoading, setShowLoading] = useState(true);
+  const { goHome } = useNavigation();
   // const goBackHomeAndCloseDoor = () => {
   //   setEasterEggStep("nochesRestored");
   //   router.push("/");
   // };
 
+  const { setBlurb, setShowPhoneNumber, onCloseCallback } =
+    useShowPhoneNumber();
   const [dontClickClicked, setDontClickClicked] = useState(false);
+
+  useEffect(() => {
+    if (dontClickClicked) {
+      setTimeout(() => {
+        setBlurb(
+          `Unexpected Error. For technical support please call ${PHONE_NUMBER}`
+        );
+        onCloseCallback.current = () => {
+          setDontClickClicked(false);
+          goHome();
+        };
+        setShowPhoneNumber(true);
+      }, 1500);
+    }
+  }, [dontClickClicked, goHome, onCloseCallback, setBlurb, setShowPhoneNumber]);
 
   const bg = showLoading ? "nocheverse-flashing-text.gif" : "/nochesExeBg.png";
   const screenRef = useRef(null);

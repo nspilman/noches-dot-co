@@ -8,12 +8,13 @@ interface Props extends WindowProps {
     label: Label;
     icon: string;
     onClick: () => void;
+    width?: string;
   }[];
 }
 
-export const Folder = ({ buttonProps, windowName, onClose }: Props) => {
+export const Folder = ({ buttonProps, windowName, onClose, width }: Props) => {
   return (
-    <Window windowName={windowName} onClose={onClose}>
+    <Window windowName={windowName} onClose={onClose} width={width}>
       <Box
         background="white"
         h="40"

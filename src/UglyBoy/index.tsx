@@ -1,20 +1,21 @@
 import { Image } from "@chakra-ui/react";
 import { ScreenWrapper } from "components/ScreenWrapper/ScreenWrapper";
+import { PHONE_NUMBER } from "consts";
 import { useEmailCapture } from "context/EmailCaptureContext";
-import { useRouter } from "next/router";
+import { useShowPhoneNumber } from "context/ShowPhoneNumberContext";
 import { useNavigation } from "utils/useNavigation";
 
 export const UglyBoy = () => {
-  const router = useRouter();
-  const { setShowEmailCapture, onCloseCallback, setBlurb } = useEmailCapture();
   const { goHome } = useNavigation();
+  const { setShowPhoneNumber, onCloseCallback, setBlurb } =
+    useShowPhoneNumber();
   const onClick = () => {
     onCloseCallback.current = () => goHome();
     setBlurb(
-      "You're here early, Ugly Boy! We'll let you know when to come back"
+      `Unexpected Error - We didn't get your call. Please call ${PHONE_NUMBER}`
     );
 
-    setShowEmailCapture(true);
+    setShowPhoneNumber(true);
   };
   return (
     <ScreenWrapper>

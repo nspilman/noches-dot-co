@@ -1,16 +1,16 @@
 import { Box, Image } from "@chakra-ui/react";
 import { ScreenWrapper } from "components/ScreenWrapper/ScreenWrapper";
-import { useEmailCapture } from "context/EmailCaptureContext";
+import { PHONE_NUMBER } from "consts";
+import { useShowPhoneNumber } from "context/ShowPhoneNumberContext";
 
 export const TheGardenPromo = () => {
-  const { setShowEmailCapture, setBlurb, onCloseCallback } = useEmailCapture();
+  const { setShowPhoneNumber, setBlurb, onCloseCallback } =
+    useShowPhoneNumber();
   const { goHome } = useNavigation();
   const onVideoEnd = () => {
-    setBlurb(
-      "GET TO THE GARDEN. The Garden comes out May 19th. Let us keep you in the loop on the release and everything else we have in store."
-    );
+    setBlurb(`YOU'RE RUNNING OUT OF TIME. CALL ${PHONE_NUMBER}`);
     onCloseCallback.current = () => goHome();
-    setShowEmailCapture(true);
+    setShowPhoneNumber(true);
   };
   return (
     <ScreenWrapper>

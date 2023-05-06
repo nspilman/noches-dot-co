@@ -35,7 +35,7 @@ export const TheGardenLanding = () => {
         )}
 
         <Image src="/landing-page-bg.png" />
-        <Box height="60vh" backgroundColor="black">
+        <Box backgroundColor="black">
           <Center>
             <Button
               px="0"

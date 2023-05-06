@@ -8,11 +8,11 @@ export const HomePage = () => {
   const background = useMemo(() => {
     switch (easterEggStep) {
       case "disabled":
-        return "/bg.jpeg";
+        return "/home/bg.jpeg";
       case "nochesRestored":
-        return "/bg_daymoon.jpeg";
+        return "/home/bg_daymoon.jpeg";
       case "doorOpen":
-        return "/bg_nightmoon.png";
+        return "/home/bg_nightmoon.png";
       default:
         return "";
     }

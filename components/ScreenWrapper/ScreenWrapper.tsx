@@ -3,6 +3,8 @@ import { Phone } from "./Phone";
 import { useEasterEgg } from "context";
 import { EmailCollectionWindow } from "components/EmailCollectionWindow";
 import { useEmailCapture } from "context/EmailCaptureContext";
+import { useShowPhoneNumber } from "context/ShowPhoneNumberContext";
+import { PhoneNumberWindow } from "components/PhoneNumberWindow";
 
 export const ScreenWrapper = ({
   children,
@@ -13,6 +15,7 @@ export const ScreenWrapper = ({
 }) => {
   const { easterEggStep } = useEasterEgg();
   const { showEmailCapture } = useEmailCapture();
+  const { showShowPhoneNumber } = useShowPhoneNumber();
   return (
     <Center
       backgroundImage="/noches_bedroom.png"
@@ -32,6 +35,7 @@ export const ScreenWrapper = ({
       <Phone screenBg={screenBg}>
         <>
           {showEmailCapture && <EmailCollectionWindow />}
+          {showShowPhoneNumber && <PhoneNumberWindow />}
           {children}
         </>
       </Phone>
