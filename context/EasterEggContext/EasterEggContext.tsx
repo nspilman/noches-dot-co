@@ -1,4 +1,5 @@
 // ThemeContext.tsx
+import { useRouter } from "next/router";
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { useStorage } from "utils/useStorage";
 
@@ -18,6 +19,7 @@ export const EasterEggContextProvider = ({
 }: {
   children: React.ReactElement;
 }) => {
+  const router = useRouter();
   const easterEggPersistenceKey = "NocheseasterEgg" as const;
   const storage = useStorage<typeof easterEggPersistenceKey, Step>();
   const [easterEggStep, setEasterEggStep] = useState<Step>("disabled");
@@ -27,7 +29,17 @@ export const EasterEggContextProvider = ({
     if (persistedEasterEggStep) {
       setEasterEggStep(persistedEasterEggStep);
     }
-  }, [easterEggStep, storage]);
+    setTimeout(() => {
+      const easterEggFound = persistedEasterEggStep === "doorOpen";
+      if (
+        easterEggStep === "disabled" &&
+        !easterEggFound &&
+        router.pathname !== "/"
+      ) {
+        router.push("/");
+      }
+    }, 0);
+  }, [easterEggStep, storage, router]);
 
   const setAndPersistEasterEggStep = (step: Step) => {
     storage.setItem(easterEggPersistenceKey, step);
