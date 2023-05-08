@@ -26,7 +26,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       const { data: previousTableEntriesForNumber } = await supabase
         .from("marketing_incoming_calls")
         .select("*")
-        .filter("user_number", "=", to);
+        .filter("user_number", "eq", to);
 
       if (!previousTableEntriesForNumber?.length) {
         await client.messages.create({
