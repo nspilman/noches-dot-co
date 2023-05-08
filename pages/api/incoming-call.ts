@@ -28,7 +28,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         .select("*")
         .filter("user_number", "=", to);
 
-      if (previousTableEntriesForNumber?.length) {
+      if (!previousTableEntriesForNumber?.length) {
         await client.messages.create({
           body: messageText,
           from: process.env.NEXT_PUBLIC_TWILIO_NUMBER,
