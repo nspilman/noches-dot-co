@@ -2,6 +2,7 @@
 
 import type { NextApiRequest, NextApiResponse } from "next";
 import twilio from "twilio";
+import VoiceResponse from "twilio/lib/twiml/VoiceResponse";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   if (req.method === "POST") {
@@ -11,6 +12,9 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
         process.env.NEXT_PUBLIC_TWILIO_AUTH_TOKEN
       );
 
+      const twiml = new VoiceResponse();
+      twiml.play("/noches-voicemail.mp3");
+      //   twiml.say({ voice: "alice" }, "we out here");
       // Replace with your Twilio phone number and the message you want to send
       const messageText =
         "Having trouble waking up? https://noches.co can help. You are not in danger";
@@ -26,9 +30,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       console.log({ message });
 
       res.setHeader("Content-Type", "text/xml");
-      res
-        .status(200)
-        .json({ message: `Message sent with SID: ${message.sid}` });
+      res.status(200).send(twiml.toString());
+      // .json({ message: `Message sent with SID: ${message.sid}` });
     } catch (error) {
       console.error(error);
       res.status(500).json({ error: "Failed to handle incoming call." });
