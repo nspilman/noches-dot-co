@@ -14,7 +14,7 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       const messageText =
         "Having trouble waking up? https://noches.co can help. You are not in danger";
 
-      handleIncomingNumber(req.body.From, messageText);
+      await handleIncomingNumber(req.body.From, messageText);
 
       res.setHeader("Content-Type", "text/xml");
       res.status(200).send(twiml.toString());
