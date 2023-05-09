@@ -1,7 +1,11 @@
 import twilio from "twilio";
 import { getSupabaseClient } from "./getSupabaseClient";
 
-export const handleIncomingNumber = async (to: string, messageText: string) => {
+export const handleIncomingNumber = async (
+  to: string,
+  messageText: string,
+  nochesNumber = process.env.NEXT_PUBLIC_TWILIO_NUMBER
+) => {
   const supabase = getSupabaseClient();
   const { data: previousTableEntriesForNumber, error } = await supabase
     .from("marketing_incoming_calls")
@@ -21,10 +25,8 @@ export const handleIncomingNumber = async (to: string, messageText: string) => {
     });
   }
 
-  const { status } = await supabase
-    .from("marketing_incoming_calls")
-    .insert({
-      user_number: to,
-      noches_number: process.env.NEXT_PUBLIC_TWILIO_NUMBER,
-    });
+  const { status } = await supabase.from("marketing_incoming_calls").insert({
+    user_number: to,
+    noches_number: nochesNumber,
+  });
 };
