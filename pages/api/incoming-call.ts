@@ -1,5 +1,6 @@
 // pages/api/incoming_call.ts
 
+import { messageText } from "consts";
 import type { NextApiRequest, NextApiResponse } from "next";
 import VoiceResponse from "twilio/lib/twiml/VoiceResponse";
 import { handleIncomingNumber } from "utils/handleIcomingNumber";
@@ -11,8 +12,6 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
       twiml.play("/noches-voicemail.mp3");
       //   twiml.say({ voice: "alice" }, "we out here");
       // Replace with your Twilio phone number and the message you want to send
-      const messageText =
-        "Having trouble waking up? https://noches.co can help. You are not in danger";
 
       await handleIncomingNumber(req.body.From, messageText);
 
