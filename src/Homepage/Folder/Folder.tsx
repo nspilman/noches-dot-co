@@ -1,4 +1,4 @@
-import { Box, Stack } from "@chakra-ui/react";
+import { Box, Stack, Wrap } from "@chakra-ui/react";
 import { IconButton } from "../../../components/IconButton";
 import { Label } from "../../../components/ScreenWrapper/Phone/Screen/types";
 import { Window, Props as WindowProps } from "../../../components/Window";
@@ -23,8 +23,14 @@ export const Folder = ({ buttonProps, windowName, onClose, width }: Props) => {
         borderRight="2px solid #efefef"
         borderBottom="2px solid #efefef"
       >
-        <Stack py="8" direction="row">
-          {buttonProps.map((button, i) => (
+        <Stack pt="8" direction="row">
+          {buttonProps.slice(0, 3).map((button, i) => (
+            <IconButton {...button} key={i} labelColor="black" />
+          ))}{" "}
+        </Stack>
+        {/* Flex wrap isn't working so I'm hacking it */}
+        <Stack pt="8" direction="row">
+          {buttonProps.slice(3, 6).map((button, i) => (
             <IconButton {...button} key={i} labelColor="black" />
           ))}{" "}
         </Stack>

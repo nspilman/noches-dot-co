@@ -7,4 +7,5 @@ export type Label =
   | "THE GARDEN"
   | "TikTok"
   | "Mailing List"
+  | "YouTube"
   | "Instagram";

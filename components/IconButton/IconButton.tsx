@@ -34,6 +34,7 @@ export const IconButton = ({
       _hover={{ backgroundColor: "unset" }}
       onClick={onClick}
       px="0"
+      mx="0"
       onContextMenu={onContextMenu}
     >
       <Center flexDirection="column">

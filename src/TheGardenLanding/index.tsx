@@ -2,7 +2,6 @@ import { Image, Box, Button, Center, Stack } from "@chakra-ui/react";
 import { ActionButton } from "components/ActionButton";
 import { ScreenWrapper } from "components/ScreenWrapper/ScreenWrapper";
 import { Window } from "components/Window";
-import { useEmailCapture } from "context/EmailCaptureContext";
 import { useRouter } from "next/router";
 import { useState } from "react";
 

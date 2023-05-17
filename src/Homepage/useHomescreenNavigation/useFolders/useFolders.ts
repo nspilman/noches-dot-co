@@ -7,6 +7,7 @@ const theGardenPresave =
 
 const instagram = "https://www.instagram.com/noches_exe/";
 const tiktok = "https://www.tiktok.com/@noches.exe";
+const youtube = "https://www.youtube.com/@noches_exe";
 export const useFolders = ({
   isEasterEggActive,
   setNochesExe,
@@ -50,6 +51,11 @@ export const useFolders = ({
           label: "TikTok" as const,
           icon: "/home/tiktok.png",
           onClick: () => openExternalLink(tiktok),
+        },
+        {
+          label: "YouTube" as const,
+          icon: "/home/youtube.png",
+          onClick: () => openExternalLink(youtube),
         },
         {
           label: "Mailing List" as const,
