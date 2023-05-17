@@ -42,7 +42,7 @@ const VideoComponent = ({ onVideoEnd }: { onVideoEnd: () => void }) => {
       script.addEventListener("load", () => {
         window._wq = window._wq || [];
         window._wq.push({
-          id: "lqd5lvcti5",
+          id: "mbm5bwfzdr",
           onReady: function (video: any) {
             video.bind("end", function () {
               onVideoEnd();
@@ -62,7 +62,7 @@ const VideoComponent = ({ onVideoEnd }: { onVideoEnd: () => void }) => {
 
   return (
     <Box
-      className="wistia_embed wistia_async_lqd5lvcti5"
+      className="wistia_embed wistia_async_mbm5bwfzdr"
       position="relative"
       height="100vh"
       width="100vw"
