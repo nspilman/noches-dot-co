@@ -82,7 +82,7 @@ const VideoComponent = ({ onVideoEnd }: { onVideoEnd: () => void }) => {
         ref={parent}
       >
         <Image
-          src={`https://fast.wistia.com/embed/medias/lqd5lvcti5/swatch`}
+          src={`https://fast.wistia.com/embed/medias/mbm5bwfzdr/swatch`}
           style={{
             filter: "blur(5px)",
             height: "100%",
