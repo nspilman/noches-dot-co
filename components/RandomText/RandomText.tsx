@@ -1,9 +1,7 @@
 import { Heading } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
-
-function getRandomInterval(floor: number, ceiling: number): number {
-  return Math.floor(Math.random() * (ceiling - floor + 1)) + floor;
-}
+import { getRandomInterval } from "utils/getRandomInterval";
+import { getRandomPosition } from "utils/getRandomPosition";
 
 const RandomText = ({
   parentElement,
@@ -17,14 +15,11 @@ const RandomText = ({
   const [color, setColor] = useState<string>("black");
 
   const randomizePositionAndColor = () => {
-    const screenWidth = parentElement.current?.clientWidth || 0;
-    const screenHeight = parentElement.current?.clientHeight || 0;
-    const randomTop = Math.floor(Math.random() * screenHeight + 200);
-    const randomLeft = Math.floor(Math.random() * screenWidth);
+    const { top, left } = getRandomPosition(parentElement, { top: 200 });
     const randomColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
 
-    setTop(`${randomTop}px`);
-    setLeft(`${randomLeft}px`);
+    setTop(`${top}px`);
+    setLeft(`${left}px`);
     setColor(randomColor);
   };
 
