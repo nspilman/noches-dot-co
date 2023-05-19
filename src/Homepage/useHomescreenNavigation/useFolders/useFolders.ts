@@ -5,7 +5,7 @@ import { openExternalLink } from "utils/openExternalLink";
 const theGardenPresave =
   "https://distrokid.com/hyperfollow/noches/the-garden-2";
 
-const instagram = "https://www.instagram.com/noches_exe/";
+const instagram = "https://www.instagram.com/noches.exe/";
 const tiktok = "https://www.tiktok.com/@noches.exe";
 const youtube = "https://www.youtube.com/@noches_exe";
 export const useFolders = ({
