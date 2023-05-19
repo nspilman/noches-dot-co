@@ -36,6 +36,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             ></meta>
             <Head>
               <title>Noches | Welcome to the Nocheverse</title>
+              <meta property="og:image" content="/home/noches.png" />
             </Head>
             <Component {...pageProps} />
           </ChakraProvider>
