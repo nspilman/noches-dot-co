@@ -32,19 +32,21 @@ export const WindoWElement = ({
       <Text color="white" fontFamily="body" fontSize="lg">
         {windowName}
       </Text>
-      <Button
-        height="4"
-        width="4"
-        padding={0}
-        minWidth="unset"
-        borderRadius={0}
-        borderLeft="2px solid #ededed"
-        borderTop="2px solid #ededed"
-        borderRight="2px solid #404040"
-        borderBottom="2px solid #404040"
-      >
-        {onClose && <img src="/close-icon.png" onClick={onClose} />}
-      </Button>
+      {onClose && (
+        <Button
+          height="4"
+          width="4"
+          padding={0}
+          minWidth="unset"
+          borderRadius={0}
+          borderLeft="2px solid #ededed"
+          borderTop="2px solid #ededed"
+          borderRight="2px solid #404040"
+          borderBottom="2px solid #404040"
+        >
+          <img src="/close-icon.png" onClick={onClose} />
+        </Button>
+      )}
     </Box>
     <Box p="2">{children}</Box>
   </Box>

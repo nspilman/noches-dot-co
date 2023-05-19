@@ -74,7 +74,12 @@ interface PopUpProps {
 
 const PopUp: React.FC<PopUpProps> = ({ image, position, windowName }) => {
   return (
-    <Box position="absolute" top={position.top} left={position.left}>
+    <Box
+      position="absolute"
+      top={position.top}
+      left={position.left}
+      zIndex="1000"
+    >
       <WindoWElement windowName={windowName} width={"250px"}>
         <Image src={`scaryFaces/${image}`} alt="Random pop-up" />
       </WindoWElement>
