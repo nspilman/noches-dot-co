@@ -13,10 +13,28 @@ export const UglyBoy = () => {
   const onClick = () => {
     onCloseCallback.current = () => goHome();
     setShowUglyBoys(true);
+    playMp3Loop("PechugaVirus.mp3");
     setBlurb(`Unexpected Error - We didn't get your call. Please call `);
 
     setShowPhoneNumber(true);
   };
+  function playMp3Loop(url: string): void {
+    const audioContext = new AudioContext();
+    const audioElement = new Audio(url);
+    const source = audioContext.createMediaElementSource(audioElement);
+    const gainNode = audioContext.createGain();
+
+    // Connect the audio nodes
+    source.connect(gainNode);
+    gainNode.connect(audioContext.destination);
+
+    // Set loop property to true
+    audioElement.loop = true;
+
+    // Start playing the audio
+    audioElement.play();
+  }
+
   const positionRef = useRef(null);
   return (
     <ScreenWrapper>
