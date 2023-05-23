@@ -1,26 +1,39 @@
 import { Box, Image } from "@chakra-ui/react";
 import { ScreenWrapper } from "components/ScreenWrapper/ScreenWrapper";
 import { useShowPhoneNumber } from "context/ShowPhoneNumberContext";
-import { useRef, useState } from "react";
+import { useRouter } from "next/router";
+import { useEffect, useRef, useState } from "react";
 import { useNavigation } from "utils/useNavigation";
 import { ScaryFacePopups } from "./UglyBoyPopup";
 
 export const UglyBoy = () => {
+  const router = useRouter();
   const { goHome } = useNavigation();
   const { setShowPhoneNumber, onCloseCallback, setBlurb } =
     useShowPhoneNumber();
   const [showUglyBoys, setShowUglyBoys] = useState(false);
+  const audioRef = useRef<HTMLAudioElement>();
   const onClick = () => {
-    onCloseCallback.current = () => goHome();
+    onCloseCallback.current = () => {
+      audioRef.current?.pause();
+      goHome();
+    };
     setShowUglyBoys(true);
-    playMp3Loop("PechugaVirus.mp3");
+    audioRef.current = playMp3Loop();
     setBlurb(`Unexpected Error - We didn't get your call. Please call `);
 
     setShowPhoneNumber(true);
   };
-  function playMp3Loop(url: string): void {
+
+  useEffect(() => {
+    return audioRef.current?.pause();
+  }, [router]);
+
+  function playMp3Loop() {
+    const audioElement = new Audio("PechugaVirus.mp3");
+
     const audioContext = new AudioContext();
-    const audioElement = new Audio(url);
+
     const source = audioContext.createMediaElementSource(audioElement);
     const gainNode = audioContext.createGain();
 
@@ -33,6 +46,7 @@ export const UglyBoy = () => {
 
     // Start playing the audio
     audioElement.play();
+    return audioElement;
   }
 
   const positionRef = useRef(null);
