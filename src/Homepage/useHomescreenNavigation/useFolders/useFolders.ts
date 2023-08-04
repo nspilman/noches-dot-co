@@ -5,6 +5,8 @@ import { openExternalLink } from "utils/openExternalLink";
 const theGardenPresave =
   "https://distrokid.com/hyperfollow/noches/the-garden-2";
 
+const uglyBoyPresave = "https://distrokid.com/hyperfollow/noches/ugly-boy";
+
 const instagram = "https://www.instagram.com/noches.exe/";
 const tiktok = "https://www.tiktok.com/@filename_noches.exe";
 const youtube = "https://www.youtube.com/@noches_exe";
@@ -26,6 +28,11 @@ export const useFolders = ({
           label: "THE GARDEN" as const,
           icon: "home/moon_pixel_icon.png",
           onClick: () => openExternalLink(theGardenPresave),
+        },
+        {
+          label: "UGLY BOY" as const,
+          icon: "home/ugly_boy_link.png",
+          onClick: () => openExternalLink(uglyBoyPresave),
         },
       ],
     },

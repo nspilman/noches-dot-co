@@ -12,7 +12,7 @@ export const HomePage = () => {
       case "nochesRestored":
         return "/home/bg_daymoon.jpeg";
       case "doorOpen":
-        return "/home/bg_nightmoon.png";
+        return "/home/ugly_boy_homescreen.png";
       default:
         return "";
     }
