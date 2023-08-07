@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import { pageview } from "utils/analytics";
 import { EmailCaptureContextProvider } from "context/EmailCaptureContext";
 import { ShowPhoneNumberContextProvider } from "context/ShowPhoneNumberContext";
+import { SiteMetadataContextProvider } from "context/SiteMetadataContext";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
@@ -30,15 +31,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       <EmailCaptureContextProvider>
         <EasterEggContextProvider>
           <ChakraProvider theme={theme}>
-            <meta
-              name="viewport"
-              content="width=device-width, initial-scale=1"
-            ></meta>
-            <Head>
-              <title>Noches | Welcome to the Nocheverse</title>
-              <meta property="og:image" content="/home/noches.png" />
-            </Head>
-            <Component {...pageProps} />
+            <SiteMetadataContextProvider>
+              <Component {...pageProps} />
+            </SiteMetadataContextProvider>
           </ChakraProvider>
         </EasterEggContextProvider>
       </EmailCaptureContextProvider>

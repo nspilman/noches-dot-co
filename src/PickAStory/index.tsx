@@ -1,9 +1,12 @@
 import { Button, Image, Box, Text } from "@chakra-ui/react";
 import { ScreenWrapper } from "components/ScreenWrapper/ScreenWrapper";
+import { useSiteMetadata } from "context/SiteMetadataContext";
 import { useRouter } from "next/router";
 
 export const PickAStory = () => {
   const router = useRouter();
+  const { setTitle } = useSiteMetadata();
+  setTitle("Pick a Story");
   return (
     <ScreenWrapper screenBg={""}>
       <>
@@ -99,7 +102,7 @@ export const PickAStory = () => {
               px="0"
               background="unset"
               _hover={{ background: "unset" }}
-              onClick={() => router.push("/ugly-world")}
+              onClick={() => router.push("/ugly-boy")}
             >
               <Box
                 zIndex={4}

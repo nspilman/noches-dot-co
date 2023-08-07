@@ -30,7 +30,7 @@ export const UglyBoyComingSoon = () => {
   }, [router]);
 
   function playMp3Loop() {
-    const audioElement = new Audio("PechugaVirus.mp3");
+    const audioElement = new Audio("/PechugaVirus.mp3");
 
     const audioContext = new AudioContext();
 
@@ -54,7 +54,7 @@ export const UglyBoyComingSoon = () => {
     <ScreenWrapper>
       <Box ref={positionRef}>
         <Image
-          src="ugly-boy-coming-soon.png"
+          src="/ugly-boy-coming-soon.png"
           height="full"
           width="full"
           alt="Ugly Boy Coming Soon..."

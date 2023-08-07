@@ -1,11 +1,14 @@
 import { Box, Image } from "@chakra-ui/react";
 import { ScreenWrapper } from "components/ScreenWrapper/ScreenWrapper";
 import { useShowPhoneNumber } from "context/ShowPhoneNumberContext";
+import { useSiteMetadata } from "context/SiteMetadataContext";
 
 export const TheGardenPromo = () => {
   const { setShowPhoneNumber, setBlurb, onCloseCallback } =
     useShowPhoneNumber();
   const { goHome } = useNavigation();
+  const { setTitle } = useSiteMetadata();
+  setTitle("The Garden Promo Video");
   const onVideoEnd = () => {
     setBlurb(`YOU'RE RUNNING OUT OF TIME. CALL `);
     onCloseCallback.current = () => goHome();

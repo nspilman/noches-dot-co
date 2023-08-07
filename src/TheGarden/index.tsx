@@ -1,5 +1,6 @@
 import { Image, Box, keyframes, Text, Heading } from "@chakra-ui/react";
 import { ScreenWrapper } from "components/ScreenWrapper/ScreenWrapper";
+import { useSiteMetadata } from "context/SiteMetadataContext";
 import { useRouter } from "next/router";
 
 const pulseOpacity = keyframes`
@@ -13,6 +14,8 @@ const pulseOpacity = keyframes`
 
 export const TheGarden = () => {
   const router = useRouter();
+  const { setTitle } = useSiteMetadata();
+  setTitle("The Garden");
   return (
     <ScreenWrapper screenBg={""}>
       <Box position="relative">
@@ -61,7 +64,7 @@ export const TheGarden = () => {
               cursor: "pointer",
             },
           }}
-          onClick={() => router.push("/the-garden-landing")}
+          onClick={() => router.push("the-garden/landing")}
         />
       </Box>
     </ScreenWrapper>

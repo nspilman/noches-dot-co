@@ -1,6 +1,7 @@
 import { Box, Image } from "@chakra-ui/react";
 import { WindoWElement } from "components/WindowElement";
-import { useEffect, useState, RefObject, useMemo } from "react";
+import { useRouter } from "next/router";
+import { useEffect, useState, RefObject, useMemo, useRef } from "react";
 import { getRandomPosition } from "utils/getRandomPosition";
 
 export const ScaryFacePopups = ({
@@ -16,20 +17,52 @@ export const ScaryFacePopups = ({
     }>
   >([]);
 
+  const router = useRouter();
+
+  const audioRef = useRef<HTMLAudioElement>();
+
   const images = useMemo(
     () => [
-      "/face1.png",
-      "/face2.png",
-      "/face3.png",
-      "/face4.png",
-      "/face5.png",
-      "/face6.png",
-      "/face7.png",
-      "/face8.png",
-      "/face9.png",
+      "face1.png",
+      "face2.png",
+      "face3.png",
+      "face4.png",
+      "face5.png",
+      "face6.png",
+      "face7.png",
+      "face8.png",
+      "face9.png",
     ],
     []
   );
+
+  useEffect(() => {
+    return audioRef.current?.pause();
+  }, [router.pathname]);
+
+  useEffect(() => {
+    function playMp3Loop() {
+      const audioElement = new Audio("PechugaVirus.mp3");
+
+      const audioContext = new AudioContext();
+
+      const source = audioContext.createMediaElementSource(audioElement);
+      const gainNode = audioContext.createGain();
+
+      // Connect the audio nodes
+      source.connect(gainNode);
+      gainNode.connect(audioContext.destination);
+
+      // Set loop property to true
+      audioElement.loop = true;
+
+      // Start playing the audio
+      audioElement.play();
+      return audioElement;
+    }
+
+    audioRef.current = playMp3Loop();
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {

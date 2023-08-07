@@ -2,12 +2,16 @@ import { Image, Box, Button, Center, Stack } from "@chakra-ui/react";
 import { ActionButton } from "components/ActionButton";
 import { ScreenWrapper } from "components/ScreenWrapper/ScreenWrapper";
 import { Window } from "components/Window";
+import { useSiteMetadata } from "context/SiteMetadataContext";
 import { useRouter } from "next/router";
 import { useState } from "react";
 
 export const TheGardenLanding = () => {
   const router = useRouter();
   const [showWarning, setShowWarning] = useState(false);
+
+  const { setTitle } = useSiteMetadata();
+  setTitle("The Garden Landing Page");
 
   return (
     <ScreenWrapper screenBg={"black"}>
@@ -26,7 +30,7 @@ export const TheGardenLanding = () => {
                 />
                 <ActionButton
                   label="Yes"
-                  onClick={() => router.push("/the-garden-promo")}
+                  onClick={() => router.push("/the-garden/promo")}
                 />
               </Stack>
             </>

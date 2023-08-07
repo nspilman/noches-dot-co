@@ -1,5 +1,4 @@
 import { Center } from "@chakra-ui/react";
-import RandomText from "components/RandomText/RandomText";
 import { ScreenWrapper } from "components/ScreenWrapper/ScreenWrapper";
 import { useShowPhoneNumber } from "context/ShowPhoneNumberContext";
 import { useRouter } from "next/router";
@@ -7,11 +6,15 @@ import React, { useEffect, useRef, useState } from "react";
 import { useNavigation } from "utils/useNavigation";
 import { Body } from "./Body";
 import { Navigation } from "./Navigation";
+import { ScaryFacePopups } from "components/ScaryFacePopups/ScaryFacePopups";
+import { useSiteMetadata } from "context/SiteMetadataContext";
 
 export const NochesDotExe = () => {
   const router = useRouter();
   const [showLoading, setShowLoading] = useState(true);
   const { goHome } = useNavigation();
+  const { setTitle } = useSiteMetadata();
+  setTitle("Welcome");
   // const goBackHomeAndCloseDoor = () => {
   //   setEasterEggStep("nochesRestored");
   //   router.push("/");
@@ -56,30 +59,7 @@ export const NochesDotExe = () => {
             onClickClickHere={() => router.push("/pick-a-story")}
             onClickDontClick={() => setDontClickClicked(true)}
           />
-          {dontClickClicked && (
-            <>
-              <RandomText
-                text="We told you not to click there!"
-                parentElement={screenRef}
-              />
-              <RandomText
-                text="We told you not to click there!"
-                parentElement={screenRef}
-              />
-              <RandomText
-                text="We told you not to click there!"
-                parentElement={screenRef}
-              />
-              <RandomText
-                text="We told you not to click there!"
-                parentElement={screenRef}
-              />
-              <RandomText
-                text="We told you not to click there!"
-                parentElement={screenRef}
-              />
-            </>
-          )}
+          {dontClickClicked && <ScaryFacePopups parentRef={screenRef} />}
         </Center>
       )}
     </ScreenWrapper>

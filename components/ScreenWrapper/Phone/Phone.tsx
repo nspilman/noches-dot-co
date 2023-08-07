@@ -25,7 +25,12 @@ export const Phone = ({
         display={{ base: "none", sm: "block" }}
         pointerEvents="none"
       >
-        <Image src="iphone.png" width="xs" maxHeight="unset" maxWidth="unset" />
+        <Image
+          src="/iphone.png"
+          width="xs"
+          maxHeight="unset"
+          maxWidth="unset"
+        />
       </Box>
       <Screen screenBg={screenBg}>{children}</Screen>
     </Box>
