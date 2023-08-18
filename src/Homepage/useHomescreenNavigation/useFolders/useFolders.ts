@@ -2,10 +2,9 @@ import { useEmailCapture } from "context/EmailCaptureContext";
 import { useState } from "react";
 import { openExternalLink } from "utils/openExternalLink";
 
-const theGardenPresave =
-  "https://distrokid.com/hyperfollow/noches/the-garden-2";
+const theGardenYt = "https://www.youtube.com/watch?v=3abavR5ZfXE";
 
-const uglyBoyPresave = "https://distrokid.com/hyperfollow/noches/ugly-boy";
+const uglyBoyYt = "https://www.youtube.com/watch?v=yG_fPKcfdBI";
 
 const instagram = "https://www.instagram.com/noches.exe/";
 const tiktok = "https://www.tiktok.com/@filename_noches.exe";
@@ -27,12 +26,12 @@ export const useFolders = ({
         {
           label: "THE GARDEN" as const,
           icon: "home/moon_pixel_icon.png",
-          onClick: () => openExternalLink(theGardenPresave),
+          onClick: () => openExternalLink(theGardenYt),
         },
         {
           label: "UGLY BOY" as const,
           icon: "home/ugly_boy_link.png",
-          onClick: () => openExternalLink(uglyBoyPresave),
+          onClick: () => openExternalLink(uglyBoyYt),
         },
       ],
     },
