@@ -3,21 +3,27 @@ import { ScreenWrapper } from "components/ScreenWrapper/ScreenWrapper";
 import { useShowPhoneNumber } from "context/ShowPhoneNumberContext";
 import { useSiteMetadata } from "context/SiteMetadataContext";
 
-export const TheGardenPromo = () => {
+interface Props {
+  pageTitle: string;
+  blurb: string;
+  videoId: string;
+}
+
+export const Promo = ({ pageTitle, blurb, videoId }: Props) => {
   const { setShowPhoneNumber, setBlurb, onCloseCallback } =
     useShowPhoneNumber();
   const { goHome } = useNavigation();
   const { setTitle } = useSiteMetadata();
-  setTitle("The Garden Promo Video");
+  setTitle(pageTitle);
   const onVideoEnd = () => {
-    setBlurb(`YOU'RE RUNNING OUT OF TIME. CALL `);
+    setBlurb(blurb);
     onCloseCallback.current = () => goHome();
     setShowPhoneNumber(true);
   };
   return (
     <ScreenWrapper>
       <Box width="full" height="full" background="black" display="flex">
-        <VideoComponent onVideoEnd={onVideoEnd} />
+        <VideoComponent onVideoEnd={onVideoEnd} videoId={videoId} />
       </Box>
     </ScreenWrapper>
   );
@@ -32,7 +38,13 @@ declare global {
   }
 }
 
-const VideoComponent = ({ onVideoEnd }: { onVideoEnd: () => void }) => {
+const VideoComponent = ({
+  onVideoEnd,
+  videoId,
+}: {
+  onVideoEnd: () => void;
+  videoId: string;
+}) => {
   const isLoaded = useRef(true);
   useEffect(() => {
     if (isLoaded.current) {
@@ -45,7 +57,7 @@ const VideoComponent = ({ onVideoEnd }: { onVideoEnd: () => void }) => {
       script.addEventListener("load", () => {
         window._wq = window._wq || [];
         window._wq.push({
-          id: "mbm5bwfzdr",
+          id: videoId,
           onReady: function (video: any) {
             video.bind("end", function () {
               onVideoEnd();
@@ -65,7 +77,7 @@ const VideoComponent = ({ onVideoEnd }: { onVideoEnd: () => void }) => {
 
   return (
     <Box
-      className="wistia_embed wistia_async_mbm5bwfzdr"
+      className={`wistia_embed wistia_async_${videoId}`}
       position="relative"
       height="100vh"
       width="100vw"
@@ -85,7 +97,7 @@ const VideoComponent = ({ onVideoEnd }: { onVideoEnd: () => void }) => {
         ref={parent}
       >
         <Image
-          src={`https://fast.wistia.com/embed/medias/mbm5bwfzdr/swatch`}
+          src={`https://fast.wistia.com/embed/medias/${videoId}/swatch`}
           style={{
             filter: "blur(5px)",
             height: "100%",

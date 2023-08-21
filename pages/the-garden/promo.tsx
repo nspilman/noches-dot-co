@@ -1,8 +1,14 @@
 import type { NextPage } from "next";
-import { TheGardenPromo } from "src/TheGardenPromo";
+import { Promo } from "src/Promo";
 
 const PickAStoryPage: NextPage = () => {
-  return <TheGardenPromo />;
+  return (
+    <Promo
+      videoId="mbm5bwfzdr"
+      pageTitle="The Garden Promo Video"
+      blurb="YOU'RE RUNNING OUT OF TIME. CALL "
+    />
+  );
 };
 
 export default PickAStoryPage;

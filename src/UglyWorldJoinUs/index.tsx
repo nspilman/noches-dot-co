@@ -13,7 +13,7 @@ export const UglyWorldJoinUs = () => {
         <Image
           src="/happy_world_join_us.png"
           width="full"
-          onClick={() => router.push("/ugly-boy/coming-soon")}
+          onClick={() => router.push("/ugly-boy/promo")}
           cursor="pointer"
         />
       </Center>
