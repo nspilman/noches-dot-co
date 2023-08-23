@@ -23,13 +23,13 @@ export const Folder = ({ buttonProps, windowName, onClose, width }: Props) => {
         borderRight="2px solid #efefef"
         borderBottom="2px solid #efefef"
       >
-        <Stack pt="8" direction="row">
+        <Stack pt="8" direction="row" justifyContent="space-around">
           {buttonProps.slice(0, 3).map((button, i) => (
             <IconButton {...button} key={i} labelColor="black" />
           ))}{" "}
         </Stack>
         {/* Flex wrap isn't working so I'm hacking it */}
-        <Stack pt="8" direction="row">
+        <Stack pt="8" direction="row" justifyContent="space-around">
           {buttonProps.slice(3, 6).map((button, i) => (
             <IconButton {...button} key={i} labelColor="black" />
           ))}{" "}

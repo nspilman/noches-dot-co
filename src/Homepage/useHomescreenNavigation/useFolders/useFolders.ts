@@ -49,22 +49,18 @@ export const useFolders = ({
       windowName: "Internet Explorer" as const,
       buttonProps: [
         {
-          label: "Instagram" as const,
           icon: "/home/instagram.png",
           onClick: () => openExternalLink(instagram),
         },
         {
-          label: "TikTok" as const,
           icon: "/home/tiktok.png",
           onClick: () => openExternalLink(tiktok),
         },
         {
-          label: "YouTube" as const,
           icon: "/home/youtube.png",
           onClick: () => openExternalLink(youtube),
         },
         {
-          label: "Mailing List" as const,
           icon: "/home/email-icon.png",
           onClick: () => setShowEmailCapture(true),
         },

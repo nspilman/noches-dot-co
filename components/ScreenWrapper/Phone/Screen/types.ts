@@ -5,8 +5,4 @@ export type Label =
   | "Recycling Bin"
   | "Noches.exe"
   | "THE GARDEN"
-  | "UGLY BOY"
-  | "TikTok"
-  | "Mailing List"
-  | "YouTube"
-  | "Instagram";
+  | "UGLY BOY";
