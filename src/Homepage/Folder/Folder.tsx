@@ -5,7 +5,7 @@ import { Window, Props as WindowProps } from "../../../components/Window";
 
 interface Props extends WindowProps {
   buttonProps: {
-    label: Label;
+    label?: Label;
     icon: string;
     onClick: () => void;
     width?: string;
