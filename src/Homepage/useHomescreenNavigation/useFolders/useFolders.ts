@@ -9,6 +9,10 @@ const uglyBoyYt = "https://www.youtube.com/watch?v=yG_fPKcfdBI";
 const instagram = "https://www.instagram.com/noches.exe/";
 const tiktok = "https://www.tiktok.com/@filename_noches.exe";
 const youtube = "https://www.youtube.com/@noches_exe";
+const spotify =
+  "https://open.spotify.com/artist/4bqKmpTOZxoCvZinMYqML7?si=_plUSwrXREi2p7iYVfjTww";
+
+const appleMusic = "https://music.apple.com/us/artist/noches/1683966010";
 export const useFolders = ({
   isEasterEggActive,
   setNochesExe,
@@ -59,6 +63,14 @@ export const useFolders = ({
         {
           icon: "/home/youtube.png",
           onClick: () => openExternalLink(youtube),
+        },
+        {
+          icon: "/home/spotify.png",
+          onClick: () => openExternalLink(spotify),
+        },
+        {
+          icon: "/home/apple-music.png",
+          onClick: () => openExternalLink(appleMusic),
         },
         {
           icon: "/home/email-icon.png",
