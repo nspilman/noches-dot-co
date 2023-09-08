@@ -5,6 +5,7 @@ import { openExternalLink } from "utils/openExternalLink";
 const theGardenYt = "https://www.youtube.com/watch?v=3abavR5ZfXE";
 
 const uglyBoyYt = "https://www.youtube.com/watch?v=yG_fPKcfdBI";
+const demasiadoYt = "https://www.youtube.com/watch?v=GnxYD0dGfvM";
 
 const instagram = "https://www.instagram.com/noches.exe/";
 const tiktok = "https://www.tiktok.com/@filename_noches.exe";
@@ -36,6 +37,11 @@ export const useFolders = ({
           label: "UGLY BOY" as const,
           icon: "home/ugly_boy_link.png",
           onClick: () => openExternalLink(uglyBoyYt),
+        },
+        {
+          label: "DEMASIADO" as const,
+          icon: "home/demasiado.png",
+          onClick: () => openExternalLink(demasiadoYt),
         },
       ],
     },
