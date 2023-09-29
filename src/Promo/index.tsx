@@ -7,25 +7,39 @@ interface Props {
   pageTitle: string;
   blurb: string;
   videoId: string;
+  fullscreen?: boolean;
 }
 
-export const Promo = ({ pageTitle, blurb, videoId }: Props) => {
+const wrapInScreepWrapper = (element: React.ReactElement) => (
+  <ScreenWrapper>{element}</ScreenWrapper>
+);
+
+export const Promo = ({ pageTitle, blurb, videoId, fullscreen }: Props) => {
   const { setShowPhoneNumber, setBlurb, onCloseCallback } =
     useShowPhoneNumber();
   const { goHome } = useNavigation();
   const { setTitle } = useSiteMetadata();
   setTitle(pageTitle);
   const onVideoEnd = () => {
+    console.log({ blurb });
     setBlurb(blurb);
     onCloseCallback.current = () => goHome();
     setShowPhoneNumber(true);
   };
   return (
-    <ScreenWrapper>
-      <Box width="full" height="full" background="black" display="flex">
-        <VideoComponent onVideoEnd={onVideoEnd} videoId={videoId} />
-      </Box>
-    </ScreenWrapper>
+    <>
+      {fullscreen ? (
+        <Box width="full" height="full" background="black" display="flex">
+          <VideoComponent onVideoEnd={onVideoEnd} videoId={videoId} />
+        </Box>
+      ) : (
+        <ScreenWrapper>
+          <Box width="full" height="full" background="black" display="flex">
+            <VideoComponent onVideoEnd={onVideoEnd} videoId={videoId} />
+          </Box>
+        </ScreenWrapper>
+      )}
+    </>
   );
 };
 

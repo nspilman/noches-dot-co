@@ -1,6 +1,7 @@
 import { Box, Image } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { Fade, ScaleFade, Slide, SlideFade, Collapse } from "@chakra-ui/react";
+import { useRouter } from "next/router";
 
 export const NewSite = () => {
   const [clicked, setClicked] = useState(false);
@@ -12,6 +13,7 @@ export const NewSite = () => {
       }, 4000);
     }
   });
+  const router = useRouter();
   return (
     <Box
       backgroundSize={"cover"}
@@ -39,7 +41,13 @@ export const NewSite = () => {
             </button>
           </ScaleFade>
           <ScaleFade in={showDoor} initialScale={0.5}>
-            <Image src="/noches door 2.png" height="16rem" marginBottom={"8"} />
+            <button onClick={() => router.push("/album-trailer")}>
+              <Image
+                src="/noches door 2.png"
+                height="16rem"
+                marginBottom={"8"}
+              />
+            </button>
           </ScaleFade>
         </Box>
       </Box>
