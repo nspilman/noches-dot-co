@@ -30,3 +30,15 @@ a {
        url("/fonts/w95fa/w95fa.woff") format("woff"),
        url("/fonts/w95fa/w95fa.woff2") format("woff2");
 }
+
+@keyframes glow {
+  0% {
+      box-shadow: 0 0 5px #ff0;
+  }
+  50% {
+      box-shadow: 0 0 20px #ff0, 0 0 30px #ff0;
+  }
+  100% {
+      box-shadow: 0 0 5px #ff0;
+  }
+}

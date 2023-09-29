@@ -29,13 +29,13 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ShowPhoneNumberContextProvider>
       <EmailCaptureContextProvider>
-        <EasterEggContextProvider>
-          <ChakraProvider theme={theme}>
-            <SiteMetadataContextProvider>
-              <Component {...pageProps} />
-            </SiteMetadataContextProvider>
-          </ChakraProvider>
-        </EasterEggContextProvider>
+        {/* <EasterEggContextProvider> */}
+        <ChakraProvider theme={theme}>
+          <SiteMetadataContextProvider>
+            <Component {...pageProps} />
+          </SiteMetadataContextProvider>
+        </ChakraProvider>
+        {/* </EasterEggContextProvider> */}
       </EmailCaptureContextProvider>
     </ShowPhoneNumberContextProvider>
   );

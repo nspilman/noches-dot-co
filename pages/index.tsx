@@ -1,8 +1,10 @@
+import { Box } from "@chakra-ui/react";
+import { NewSite } from "components/NewSite/NewSite";
 import type { NextPage } from "next";
-import { HomePage } from "../src";
+import { PickAStory } from "src/PickAStory";
 
-const Home: NextPage = () => {
-  return <HomePage />;
+const NewSitePage: NextPage = () => {
+  return <NewSite />;
 };
 
-export default Home;
+export default NewSitePage;

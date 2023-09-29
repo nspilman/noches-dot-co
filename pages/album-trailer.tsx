@@ -8,6 +8,7 @@ const AlbumTrailer: NextPage = () => {
       pageTitle="Noches Entre Sombras Album Trailer"
       blurb="October - Friday the 13th"
       fullscreen
+      goToOnFinish="https://www.youtube.com/@noches_exe"
     />
   );
 };

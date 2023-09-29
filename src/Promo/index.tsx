@@ -2,29 +2,38 @@ import { Box, Image } from "@chakra-ui/react";
 import { ScreenWrapper } from "components/ScreenWrapper/ScreenWrapper";
 import { useShowPhoneNumber } from "context/ShowPhoneNumberContext";
 import { useSiteMetadata } from "context/SiteMetadataContext";
+import { useRouter } from "next/router";
 
 interface Props {
   pageTitle: string;
   blurb: string;
   videoId: string;
   fullscreen?: boolean;
+  goToOnFinish?: string;
 }
 
-const wrapInScreepWrapper = (element: React.ReactElement) => (
-  <ScreenWrapper>{element}</ScreenWrapper>
-);
-
-export const Promo = ({ pageTitle, blurb, videoId, fullscreen }: Props) => {
+export const Promo = ({
+  pageTitle,
+  blurb,
+  videoId,
+  fullscreen,
+  goToOnFinish,
+}: Props) => {
   const { setShowPhoneNumber, setBlurb, onCloseCallback } =
     useShowPhoneNumber();
   const { goHome } = useNavigation();
   const { setTitle } = useSiteMetadata();
+  const router = useRouter();
   setTitle(pageTitle);
   const onVideoEnd = () => {
-    console.log({ blurb });
-    setBlurb(blurb);
-    onCloseCallback.current = () => goHome();
-    setShowPhoneNumber(true);
+    if (goToOnFinish && window) {
+      window.open(goToOnFinish);
+      router.push("/");
+    } else {
+      setBlurb(blurb);
+      onCloseCallback.current = () => goHome();
+      setShowPhoneNumber(true);
+    }
   };
   return (
     <>
